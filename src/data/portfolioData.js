@@ -4,6 +4,7 @@ export const personalInfo = {
   name: "Vian Pandya",
   title: "Freelance Full-Stack Developer & UI Architect",
   email: "vianpandya66@gmail.com",
+  linkedin: "https://www.linkedin.com/in/vian-pandya-b6b885424/",
   location: "Available Remote / Worldwide",
   status: "Available for Freelance Projects & Contracts",
   bio: "Freelance Full-Stack Developer specialized in delivering high-converting web apps, robust backend APIs, and custom frontend experiences with React, Angular, Node.js, .NET, PostgreSQL, SQL & MongoDB.",
