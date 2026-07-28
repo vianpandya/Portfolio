@@ -145,16 +145,15 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
             </a>
 
             <a
-              href="#contact"
+              href="/vian-pandya_resume.pdf"
+              download="vian-pandya_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
               id="download-cv-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                onCopyEmail(personalInfo.email);
-              }}
             >
               <Download size={18} />
-              <span>Resume / Contact</span>
+              <span>Resume</span>
             </a>
 
             <button

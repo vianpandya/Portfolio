@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Mail, Copy, Check, Send, MessageSquare, Globe, Sparkles } from 'lucide-react';
-
+import { Mail, Copy, Check, Send, MessageSquare, Globe, Sparkles, AlertCircle } from 'lucide-react';
 
 const LinkedinIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -13,15 +12,65 @@ const LinkedinIcon = ({ size = 18 }) => (
 
 export default function Contact({ onCopyEmail, copiedEmail }) {
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+
+  const validateField = (field, value) => {
+    let err = '';
+    if (field === 'name') {
+      if (!value.trim()) err = 'Full name is required.';
+      else if (value.trim().length < 2) err = 'Name must be at least 2 characters.';
+    }
+    if (field === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!value.trim()) err = 'Email address is required.';
+      else if (!emailRegex.test(value.trim())) err = 'Please enter a valid email address.';
+    }
+    if (field === 'subject') {
+      if (value.trim() && value.trim().length < 3) err = 'Subject must be at least 3 characters.';
+    }
+    if (field === 'message') {
+      if (!value.trim()) err = 'Message details are required.';
+      else if (value.trim().length < 10) err = 'Message must be at least 10 characters long.';
+    }
+    return err;
+  };
+
+  const handleChange = (field, value) => {
+    setFormState((prev) => ({ ...prev, [field]: value }));
+    if (touched[field]) {
+      const err = validateField(field, value);
+      setErrors((prev) => ({ ...prev, [field]: err }));
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const err = validateField(field, formState[field]);
+    setErrors((prev) => ({ ...prev, [field]: err }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    ['name', 'email', 'subject', 'message'].forEach((field) => {
+      const err = validateField(field, formState[field]);
+      if (err) newErrors[field] = err;
+    });
+    setErrors(newErrors);
+    setTouched({ name: true, email: true, subject: true, message: true });
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formState.name || !formState.email || !formState.message) return;
+    if (!validateForm()) return;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setFormState({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
+      setTouched({});
     }, 4000);
   };
 
@@ -196,53 +245,73 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Your Name
+                    Your Name *
                   </label>
                   <input
                     type="text"
-                    required
                     placeholder="e.g. Alex Mercer"
                     value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                    onChange={(e) => handleChange('name', e.target.value)}
+                    onBlur={() => handleBlur('name')}
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',
                       borderRadius: '0.6rem',
                       background: '#05070c',
-                      border: '1px solid var(--border-subtle)',
+                      border: touched.name && errors.name
+                        ? '1px solid #ef4444'
+                        : touched.name && !errors.name && formState.name
+                        ? '1px solid rgba(16, 185, 129, 0.5)'
+                        : '1px solid var(--border-subtle)',
                       color: 'var(--text-main)',
                       outline: 'none',
                       fontFamily: 'var(--font-body)',
-                      fontSize: '0.92rem'
+                      fontSize: '0.92rem',
+                      transition: 'var(--transition-fast)'
                     }}
                   />
+                  {touched.name && errors.name && (
+                    <span style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={13} /> {errors.name}
+                    </span>
+                  )}
                 </div>
 
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Your Email Address
+                    Your Email Address *
                   </label>
                   <input
                     type="email"
-                    required
                     placeholder="e.g. alex@example.com"
                     value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                    onChange={(e) => handleChange('email', e.target.value)}
+                    onBlur={() => handleBlur('email')}
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',
                       borderRadius: '0.6rem',
                       background: '#05070c',
-                      border: '1px solid var(--border-subtle)',
+                      border: touched.email && errors.email
+                        ? '1px solid #ef4444'
+                        : touched.email && !errors.email && formState.email
+                        ? '1px solid rgba(16, 185, 129, 0.5)'
+                        : '1px solid var(--border-subtle)',
                       color: 'var(--text-main)',
                       outline: 'none',
                       fontFamily: 'var(--font-body)',
-                      fontSize: '0.92rem'
+                      fontSize: '0.92rem',
+                      transition: 'var(--transition-fast)'
                     }}
                   />
+                  {touched.email && errors.email && (
+                    <span style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={13} /> {errors.email}
+                    </span>
+                  )}
                 </div>
 
                 <div>
@@ -253,44 +322,65 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                     type="text"
                     placeholder="e.g. Full-Stack Web Application / API Design"
                     value={formState.subject}
-                    onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                    onChange={(e) => handleChange('subject', e.target.value)}
+                    onBlur={() => handleBlur('subject')}
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',
                       borderRadius: '0.6rem',
                       background: '#05070c',
-                      border: '1px solid var(--border-subtle)',
-                      color: 'var(--text-main)',
-                      outline: 'none',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.92rem'
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-                    Message Details
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    placeholder="Tell me about your project scope, goals, or requirements..."
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '0.6rem',
-                      background: '#05070c',
-                      border: '1px solid var(--border-subtle)',
+                      border: touched.subject && errors.subject
+                        ? '1px solid #ef4444'
+                        : touched.subject && !errors.subject && formState.subject
+                        ? '1px solid rgba(16, 185, 129, 0.5)'
+                        : '1px solid var(--border-subtle)',
                       color: 'var(--text-main)',
                       outline: 'none',
                       fontFamily: 'var(--font-body)',
                       fontSize: '0.92rem',
-                      resize: 'vertical'
+                      transition: 'var(--transition-fast)'
                     }}
                   />
+                  {touched.subject && errors.subject && (
+                    <span style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={13} /> {errors.subject}
+                    </span>
+                  )}
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
+                    Message Details *
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Tell me about your project scope, goals, or requirements..."
+                    value={formState.message}
+                    onChange={(e) => handleChange('message', e.target.value)}
+                    onBlur={() => handleBlur('message')}
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem 1rem',
+                      borderRadius: '0.6rem',
+                      background: '#05070c',
+                      border: touched.message && errors.message
+                        ? '1px solid #ef4444'
+                        : touched.message && !errors.message && formState.message
+                        ? '1px solid rgba(16, 185, 129, 0.5)'
+                        : '1px solid var(--border-subtle)',
+                      color: 'var(--text-main)',
+                      outline: 'none',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.92rem',
+                      resize: 'vertical',
+                      transition: 'var(--transition-fast)'
+                    }}
+                  />
+                  {touched.message && errors.message && (
+                    <span style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={13} /> {errors.message}
+                    </span>
+                  )}
                 </div>
 
                 <button type="submit" className="btn-primary" style={{ justifyContent: 'center', marginTop: '0.5rem' }}>

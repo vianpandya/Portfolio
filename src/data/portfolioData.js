@@ -7,9 +7,9 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/vian-pandya-b6b885424/",
   location: "Available Remote / Worldwide",
   status: "Available for Freelance Projects & Contracts",
-  bio: "Freelance Full-Stack Developer specialized in delivering high-converting web apps, robust backend APIs, and custom frontend experiences with React, Angular, Node.js, .NET, PostgreSQL, SQL & MongoDB.",
+  bio: "Freelance Full-Stack Developer specialized in delivering high-converting web apps, robust backend APIs, and custom frontend experiences with React, Angular, Node.js, .NET, SQL Server, PostgreSQL, SQL & MongoDB.",
   stats: [
-    { label: "Years Experience", value: "2+" },
+    { label: "Years Experience", value: "2" },
     { label: "Core Technologies", value: "10+" },
     { label: "Client Satisfaction", value: "100%" },
     { label: "Uptime & Quality", value: "99.9%" }
@@ -40,8 +40,9 @@ export const skillsData = [
     category: "Database & Data Architecture",
     icon: "Database",
     skills: [
-      { name: "PostgreSQL", level: 88, tag: "Relational DB", desc: "Complex Queries, Indexing, Joins, Triggers, Optimization" },
       { name: "SQL", level: 92, tag: "Query Language", desc: "Schema Design, Stored Procedures, Views, Data Modeling" },
+      { name: "SQL Server", level: 88, tag: "Relational DB", desc: "T-SQL, Stored Procedures, Index Tuning, Enterprise DB Management" },
+      { name: "PostgreSQL", level: 88, tag: "Relational DB", desc: "Complex Queries, Indexing, Joins, Triggers, Optimization" },
       { name: "MongoDB", level: 85, tag: "NoSQL DB", desc: "Document Collections, Aggregation Pipeline, Mongoose" }
     ]
   }
