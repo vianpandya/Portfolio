@@ -9,7 +9,6 @@ import {
   Mail, 
   Palette, 
   Copy, 
-  Check, 
   ArrowRight 
 } from 'lucide-react';
 
@@ -18,29 +17,37 @@ export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEma
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (isOpen) onClose();
-        else {
-          // Open handled by parent or state
-        }
-      }
       if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    window.history.replaceState(null, '', window.location.pathname);
+    onClose();
+  };
+
   const actions = [
-    { id: 'about', label: 'Go to About & Philosophy', icon: <Terminal size={16} />, action: () => { window.location.hash = '#about'; onClose(); } },
-    { id: 'skills', label: 'Go to Skills & Tech Stack', icon: <Code size={16} />, action: () => { window.location.hash = '#skills'; onClose(); } },
-    { id: 'projects', label: 'Go to Featured Projects', icon: <Folder size={16} />, action: () => { window.location.hash = '#projects'; onClose(); } },
-    { id: 'contact', label: 'Go to Contact Hub', icon: <Mail size={16} />, action: () => { window.location.hash = '#contact'; onClose(); } },
-    { id: 'copy-email', label: `Copy Email (${personalInfo.email})`, icon: <Copy size={16} />, action: () => { onCopyEmail(personalInfo.email); } },
+    { id: 'about', label: 'Go to About & Philosophy', icon: <Terminal size={16} />, action: () => handleScrollTo('about') },
+    { id: 'skills', label: 'Go to Skills & Tech Stack', icon: <Code size={16} />, action: () => handleScrollTo('skills') },
+    { id: 'projects', label: 'Go to Featured Projects', icon: <Folder size={16} />, action: () => handleScrollTo('projects') },
+    { id: 'contact', label: 'Go to Contact Hub', icon: <Mail size={16} />, action: () => handleScrollTo('contact') },
+    { id: 'copy-email', label: `Copy Email (${personalInfo.email})`, icon: <Copy size={16} />, action: () => { onCopyEmail(personalInfo.email); onClose(); } },
     { id: 'theme-indigo', label: 'Switch Theme: Electric Indigo', icon: <Palette size={16} color="#6366f1" />, action: () => { setTheme('indigo'); onClose(); } },
     { id: 'theme-emerald', label: 'Switch Theme: Emerald Cyber', icon: <Palette size={16} color="#059669" />, action: () => { setTheme('emerald'); onClose(); } },
     { id: 'theme-cyan', label: 'Switch Theme: Deep Cyan', icon: <Palette size={16} color="#06b6d4" />, action: () => { setTheme('cyan'); onClose(); } },
@@ -52,7 +59,14 @@ export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEma
   );
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div 
+      className="modal-backdrop" 
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
       <div 
         className="glass-card" 
         style={{ 
@@ -92,8 +106,13 @@ export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEma
               fontSize: '0.98rem'
             }}
           />
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer' }}>
-            <X size={18} />
+          <button 
+            type="button"
+            onClick={onClose} 
+            style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+            title="Close command palette"
+          >
+            <X size={20} />
           </button>
         </div>
 
@@ -153,7 +172,6 @@ export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEma
           <span>Vian Pandya Portfolio CLI</span>
           <span>Press ESC or Click Outside</span>
         </div>
-
       </div>
     </div>
   );

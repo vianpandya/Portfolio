@@ -39,6 +39,19 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
     { id: 'amber', color: '#f59e0b', label: 'Amber' }
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.history.replaceState(null, '', window.location.pathname);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav 
       style={{
@@ -59,6 +72,7 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
         {/* Brand Logo */}
         <a 
           href="#" 
+          onClick={(e) => handleNavClick(e, '#')}
           style={{ 
             display: 'flex', 
             alignItems: 'center', 
@@ -107,6 +121,7 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               style={{
                 color: 'var(--text-muted)',
                 textDecoration: 'none',
@@ -177,34 +192,29 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
             padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: '1rem',
+            alignItems: 'center',
+            textAlign: 'center'
           }}
         >
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               style={{
                 color: 'var(--text-main)',
                 textDecoration: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 500,
-                padding: '0.5rem 0'
+                padding: '0.5rem 0',
+                textAlign: 'center',
+                width: '100%'
               }}
             >
               {link.name}
             </a>
           ))}
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="btn-primary"
-            style={{ textAlign: 'center', justifyContent: 'center' }}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <Mail size={16} />
-            Email Vian
-          </a>
         </div>
       )}
 

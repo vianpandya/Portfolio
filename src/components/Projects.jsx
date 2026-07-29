@@ -9,12 +9,15 @@ import {
   X,
   Sparkles,
   Server,
-  Globe
+  Globe,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const tabs = ['All', 'Frontend', 'Full-Stack'];
 
@@ -22,8 +25,15 @@ export default function Projects() {
     ? projectsData
     : projectsData.filter(p => p.category === activeTab);
 
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setShowAll(false);
+  };
+
   return (
-    <section id="projects" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="projects" style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
 
         {/* Section Header */}
@@ -44,7 +54,7 @@ export default function Projects() {
             {tabs.map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => handleTabChange(tab)}
                 className={`badge ${activeTab === tab ? 'badge-active' : ''}`}
                 style={{
                   cursor: 'pointer',
@@ -53,7 +63,7 @@ export default function Projects() {
                 }}
               >
                 {tab === 'All' && 'All Projects'}
-                {tab === 'Frontend' && 'Frontend Web Apps (Live Links)'}
+                {tab === 'Frontend' && 'Frontend Web Apps'}
                 {tab === 'Full-Stack' && 'Full-Stack Systems'}
               </button>
             ))}
@@ -69,7 +79,7 @@ export default function Projects() {
             alignItems: 'stretch'
           }}
         >
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <div
               key={project.id}
               className="glass-card"
@@ -206,6 +216,28 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        {/* View More / Show Less Button */}
+        {filteredProjects.length > 6 && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="btn-secondary"
+              style={{
+                padding: '0.85rem 2rem',
+                fontSize: '0.95rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                borderRadius: '0.6rem',
+                cursor: 'pointer'
+              }}
+            >
+              <span>{showAll ? 'Show Less Projects' : `View More Projects`}</span>
+              {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+            </button>
+          </div>
+        )}
 
       </div>
 

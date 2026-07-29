@@ -45,6 +45,16 @@ export const skillsData = [
       { name: "PostgreSQL", level: 88, tag: "Relational DB", desc: "Complex Queries, Indexing, Joins, Triggers, Optimization" },
       { name: "MongoDB", level: 85, tag: "NoSQL DB", desc: "Document Collections, Aggregation Pipeline, Mongoose" }
     ]
+  },
+  {
+    category: "Cloud & Hosting Platforms",
+    icon: "Cloud",
+    skills: [
+      { name: "Hostinger", level: 90, tag: "Web Hosting", desc: "Shared & VPS Hosting, Domain & DNS Setup, hPanel Administration, SSL Configuration" },
+      { name: "Netlify", level: 95, tag: "PaaS / Jamstack", desc: "Continuous Deployment, Serverless Functions, Custom Domains, Build Automation" },
+      { name: "Vercel", level: 92, tag: "Frontend Cloud", desc: "React & Next.js Deployment, Edge Network, Zero-Config CI/CD, Serverless APIs" },
+      { name: "Render", level: 70, tag: "Cloud Services", desc: "Full-Stack Web Services, Git Build Triggers, PostgreSQL & Redis Hosting" }
+    ]
   }
 ];
 

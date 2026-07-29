@@ -19,6 +19,28 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const cleanUrlHash = () => {
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    };
+    cleanUrlHash();
+    window.addEventListener('hashchange', cleanUrlHash);
+    return () => window.removeEventListener('hashchange', cleanUrlHash);
+  }, []);
+
   const handleCopyEmail = (email) => {
     navigator.clipboard.writeText(email);
     setCopiedEmail(true);

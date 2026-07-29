@@ -4,7 +4,7 @@ import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="experience" style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
         
         {/* Section Header */}

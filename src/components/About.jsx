@@ -36,7 +36,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="about" style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
         
         {/* Section Header */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Mail, Copy, Check, Send, MessageSquare, Globe, Sparkles, AlertCircle } from 'lucide-react';
+import { Mail, Copy, Check, Send, MessageSquare, Globe, Sparkles, AlertCircle, ExternalLink } from 'lucide-react';
 
 const LinkedinIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -75,7 +75,7 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
   };
 
   return (
-    <section id="contact" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="contact" style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
 
         {/* Section Header */}
@@ -143,7 +143,7 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
               </h3>
 
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
-                Click below to copy Vian's official email address instantly.
+                Click to copy email or compose directly in Outlook.
               </p>
 
               <div
@@ -172,7 +172,7 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
 
                 <button
                   onClick={() => onCopyEmail(personalInfo.email)}
-                  className="btn-primary"
+                  className="btn-secondary"
                   style={{ padding: '0.5rem 0.9rem', fontSize: '0.82rem', flexShrink: 0, marginLeft: 'auto' }}
                   title="Copy email to clipboard"
                 >
@@ -180,6 +180,16 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                   <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
+
+              {/* Single Email Vian Button */}
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="btn-primary"
+                style={{ width: '100%', marginTop: '1rem', textAlign: 'center', justifyContent: 'center' }}
+              >
+                <Mail size={16} />
+                Email Vian
+              </a>
             </div>
 
             {/* Social & Network Links */}

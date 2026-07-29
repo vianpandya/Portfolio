@@ -39,6 +39,15 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
     return () => clearTimeout(timer);
   }, [text, isDeleting, phraseIndex]);
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    window.history.replaceState(null, '', window.location.pathname);
+  };
+
   return (
     <section
       id="home"
@@ -58,45 +67,40 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
 
         <div style={{ maxWidth: '900px' }}>
           {/* Glowing Badge */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <div className="badge badge-active" style={{ padding: '0.5rem 1.1rem', fontSize: '0.9rem' }}>
-              <span className="status-dot"></span>
-              <span>Available for Opportunities & Freelance</span>
-            </div>
+          <div className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
+            <span className="pulse-dot" />
+            <span>{personalInfo.status}</span>
           </div>
 
-          {/* Hero Title */}
+          {/* Hero Main Heading */}
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2.75rem, 6vw, 4.75rem)',
+              fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
               fontWeight: 800,
               lineHeight: 1.1,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.02em',
               marginBottom: '1rem',
               color: 'var(--text-main)'
             }}
           >
-            <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '0.85em', display: 'block', marginBottom: '0.2rem' }}>
-              Hi, I'm
-            </span>
-            <span className="accent-text">{personalInfo.name}</span>
+            Crafting Scalable <br />
+            <span className="accent-text">Full-Stack Architecture</span>
           </h1>
 
-          {/* Subtitle with Dynamic Typewriter Effect */}
+          {/* Typewriter Subtitle */}
           <h2
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.4rem, 3vw, 2.25rem)',
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.85rem)',
               fontWeight: 600,
               color: 'var(--text-main)',
               marginBottom: '1.5rem',
-              lineHeight: 1.3,
-              minHeight: '3rem'
+              minHeight: '2.5rem'
             }}
           >
-            <span>I design & build </span>
-            <span style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>
+            <span>Architecting </span>
+            <span style={{ color: 'var(--accent-light)', fontFamily: 'var(--font-mono)' }}>
               {text}
             </span>
             <span
@@ -136,11 +140,11 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
               marginBottom: '4rem'
             }}
           >
-            <a href="#projects" className="btn-primary" id="view-projects-btn">
+            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="btn-primary" id="view-projects-btn">
               View Projects <ArrowRight size={18} />
             </a>
 
-            <a href="#contact" className="btn-secondary" id="contact-me-btn">
+            <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="btn-secondary" id="contact-me-btn">
               Get In Touch
             </a>
 

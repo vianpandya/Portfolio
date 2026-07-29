@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { skillsData } from '../data/portfolioData';
-import { Cpu, Layout, Server, Database, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Cpu, Layout, Server, Database, Cloud, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Frontend Excellence', 'Backend & Systems', 'Database & Data Architecture'];
+  const categories = ['All', 'Frontend Excellence', 'Backend & Systems', 'Database & Data Architecture', 'Cloud & Hosting Platforms'];
 
   const filteredCategories = activeCategory === 'All' 
     ? skillsData 
     : skillsData.filter(cat => cat.category === activeCategory);
 
   return (
-    <section id="skills" style={{ padding: '6rem 0', position: 'relative' }}>
+    <section id="skills" style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
         
         {/* Section Header */}
@@ -25,7 +25,7 @@ export default function Skills() {
             Skills & <span className="accent-text">Technologies</span>
           </h2>
           <p className="section-subtitle">
-            Engineered proficiency across frontend interfaces, backend services, and database systems.
+            Engineered proficiency across frontend interfaces, backend services, database systems, and cloud hosting platforms.
           </p>
 
           {/* Category Filter Pills */}
@@ -67,6 +67,7 @@ export default function Skills() {
                 {group.category.includes('Frontend') && <Layout size={20} color="var(--accent-primary)" />}
                 {group.category.includes('Backend') && <Server size={20} color="var(--accent-cyan)" />}
                 {group.category.includes('Database') && <Database size={20} color="var(--accent-teal)" />}
+                {(group.category.includes('Cloud') || group.category.includes('Hosting')) && <Cloud size={20} color="var(--accent-amber)" />}
                 {group.category}
               </h3>
 
