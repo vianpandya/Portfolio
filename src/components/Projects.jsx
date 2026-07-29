@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { projectsData } from '../data/portfolioData';
 import {
   FolderGit2,
@@ -20,6 +20,29 @@ export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
   const tabs = ['All', 'Frontend', 'Full-Stack'];
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedProject) {
+        setSelectedProject(null);
+      }
+    };
+
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
 
   const filteredProjects = activeTab === 'All'
     ? projectsData
@@ -252,6 +275,7 @@ export default function Projects() {
               padding: '2rem',
               maxHeight: '90vh',
               overflowY: 'auto',
+              overscrollBehavior: 'contain',
               position: 'relative'
             }}
             onClick={(e) => e.stopPropagation()}
@@ -288,13 +312,53 @@ export default function Projects() {
               Key Technical Features & Architecture
             </h4>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
-              {selectedProject.highlights.map((h, i) => (
-                <div key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', background: 'rgba(255,255,255,0.02)', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border-subtle)' }}>
-                  <Sparkles size={16} color="var(--accent-teal)" style={{ marginTop: '0.1rem' }} />
-                  <span style={{ fontSize: '0.9rem', color: 'var(--text-main)' }}>{h}</span>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.5rem' }}>
+              {selectedProject.highlights.map((h, i) => {
+                const parts = h.split(':');
+                const hasTitle = parts.length > 1;
+                const title = hasTitle ? parts[0].trim() : null;
+                const desc = hasTitle ? parts.slice(1).join(':').trim() : h;
+
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'flex',
+                      gap: '0.85rem',
+                      alignItems: 'flex-start',
+                      background: 'rgba(255, 255, 255, 0.02)',
+                      padding: '0.9rem 1.15rem',
+                      borderRadius: '0.6rem',
+                      border: '1px solid var(--border-subtle)'
+                    }}
+                  >
+                    <Sparkles size={18} color="var(--accent-primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                    <div style={{ flex: 1 }}>
+                      {hasTitle ? (
+                        <>
+                          <div
+                            style={{
+                              fontFamily: 'var(--font-heading)',
+                              fontSize: '0.95rem',
+                              fontWeight: 700,
+                              // color: 'var(--accent-light)', 
+                              marginBottom: '0.3rem',
+                              letterSpacing: '0.01em'
+                            }}
+                          >
+                            {title}
+                          </div>
+                          <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                            {desc}
+                          </div>
+                        </>
+                      ) : (
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: 1.5 }}>{h}</span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0.75rem' }}>
@@ -308,7 +372,7 @@ export default function Projects() {
               ))}
             </div>
 
-            {selectedProject.url && (
+            {selectedProject.url ? (
               <a
                 href={selectedProject.url}
                 target="_blank"
@@ -318,6 +382,23 @@ export default function Projects() {
               >
                 Open Live Project URL <ExternalLink size={16} />
               </a>
+            ) : (
+              <div
+                style={{
+                  padding: '0.85rem 1.25rem',
+                  borderRadius: '0.6rem',
+                  background: 'rgba(99, 102, 241, 0.08)',
+                  border: '1px solid var(--accent-glow)',
+                  color: 'var(--text-muted)',
+                  fontSize: '0.88rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem'
+                }}
+              >
+                <Server size={18} color="var(--accent-primary)" style={{ flexShrink: 0 }} />
+                <span>Enterprise Architecture System — Full codebase & technical documentation available upon request.</span>
+              </div>
             )}
           </div>
         </div>
