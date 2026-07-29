@@ -139,6 +139,7 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
               gap: '1rem',
               marginBottom: '4rem'
             }}
+            className="hero-buttons-container"
           >
             <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="btn-primary" id="view-projects-btn">
               View Projects <ArrowRight size={18} />
@@ -267,6 +268,18 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
         @keyframes scrollWheel {
           0% { transform: translateY(0); opacity: 1; }
           100% { transform: translateY(14px); opacity: 0; }
+        }
+        @media (max-width: 640px) {
+          .hero-buttons-container {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            width: 100% !important;
+          }
+          .hero-buttons-container a,
+          .hero-buttons-container button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
         }
       `}</style>
     </section>

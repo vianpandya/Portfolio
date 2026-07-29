@@ -137,8 +137,41 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
           ))}
         </div>
 
-        {/* Actions (Theme Picker & Mobile Menu) */}
+        {/* Actions (Command Palette, Theme Picker & Mobile Menu) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          
+          {/* Command Palette Info & Trigger Button (Desktop Only) */}
+          <button
+            onClick={onOpenPalette}
+            className="btn-secondary desktop-palette-btn"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.45rem 0.85rem',
+              fontSize: '0.82rem',
+              borderRadius: '0.6rem',
+              cursor: 'pointer'
+            }}
+            title="Open Command Palette CLI (Ctrl + K)"
+          >
+            <Search size={14} color="var(--accent-light)" />
+            <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>Palette</span>
+            <kbd 
+              style={{ 
+                fontSize: '0.7rem', 
+                fontFamily: 'var(--font-mono)', 
+                background: 'rgba(255,255,255,0.08)', 
+                padding: '0.15rem 0.4rem', 
+                borderRadius: '0.3rem',
+                color: 'var(--text-muted)',
+                border: '1px solid var(--border-subtle)'
+              }}
+            >
+              Ctrl+K
+            </kbd>
+          </button>
+
           {/* Theme Color Selector Dots */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }} className="theme-dots">
             {themes.map((t) => (
@@ -222,7 +255,7 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette }) {
       <style>{`
         @media (min-width: 768px) {
           .desktop-nav { display: flex !important; }
-          .desktop-contact-btn { display: inline-flex !important; }
+          .desktop-palette-btn { display: inline-flex !important; }
           .mobile-menu-btn { display: none !important; }
         }
       `}</style>
