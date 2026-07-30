@@ -257,19 +257,47 @@ body {
   color: var(--text-main);
 }
 
-/* Status Indicator Dot */
+/* Status Indicator Dot with Radar Ripple Wave */
+.pulse-dot,
 .status-dot {
-  width: 8px;
-  height: 8px;
+  position: relative;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background-color: var(--accent-teal);
-  box-shadow: 0 0 10px var(--accent-teal);
-  animation: pulse-dot 2s infinite ease-in-out;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
-@keyframes pulse-dot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.6; }
+.pulse-dot::after,
+.status-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid #10b981;
+  transform: translate(-50%, -50%) scale(1);
+  animation: radarRipple 2.2s cubic-bezier(0, 0.2, 0.4, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes radarRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(3.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.2);
+    opacity: 0;
+  }
 }
 
 /* Code / Mono styling */
