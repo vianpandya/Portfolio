@@ -1,6 +1,6 @@
 import React from 'react';
 import { experienceTimeline } from '../data/portfolioData';
-import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, CheckCircle2, GraduationCap } from 'lucide-react';
 
 export default function Experience() {
   return (
@@ -11,13 +11,13 @@ export default function Experience() {
         <div style={{ marginBottom: '3.5rem' }}>
           <div className="badge" style={{ marginBottom: '0.75rem' }}>
             <Briefcase size={14} />
-            <span>Career Path & Milestones</span>
+            <span>Career Path & Academic Milestones</span>
           </div>
           <h2 className="section-title">
-            Work <span className="accent-text">Experience</span>
+            <span className="accent-text">Experience</span>
           </h2>
           <p className="section-subtitle">
-            Track record of shipping production-ready code, optimizing web performance, and building full-stack applications.
+            Track record of shipping production-ready code, optimizing web performance, and academic excellence in computer engineering.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default function Experience() {
                     color: 'var(--accent-primary)'
                   }}
                 >
-                  <Briefcase size={18} />
+                  {item.type === 'education' ? <GraduationCap size={20} /> : <Briefcase size={18} />}
                 </div>
 
                 {/* Experience Glass Card */}

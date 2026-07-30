@@ -217,42 +217,57 @@ export const projectsData = [
   },
   {
     id: "recruitment-mgmt",
-    title: "Recruitment Management Project",
+    title: "Recruitment & Immigration Management System",
     category: "Full-Stack",
     url: null,
-    description: "End-to-end Applicant Tracking System (ATS) allowing hiring teams to post job vacancies, track candidate application stages, schedule interviews, and parse candidate resumes.",
+    description: "Enterprise-grade Recruitment, Immigration, and Visa Management System built with Angular 18, ASP.NET Web API (.NET 8), C#, EF Core, PostgreSQL, and Azure Cloud Infrastructure. Streamlines the end-to-end global talent acquisition lifecycle, job orders, candidate onboarding, POEA/DMW client accreditation, interview scheduling, and complex visa/immigration workflow compliance for Perdaman Global Services (PGS).",
     highlights: [
-      "Built with Angular frontend & Node.js micro-backend",
-      "Flexible MongoDB document storage for candidate profiles & resumes",
-      "Kanban-style candidate pipeline management board",
-      "Automated interview invitation email integration"
+      "Candidate & Profile Management Module: Manages candidate onboarding, draft profiles, resumes, background verification (education, employment, travel history), and secure document storage for passports and medical clearances.",
+      "Job Order & Compliance Module: Manages client Job Orders, vacancies, and job titles; maps mandatory skills, licenses, and certifications to specific requisitions to enforce compliance before candidate nomination.",
+      "Interview Scheduling & SignalR Updates: Manages candidate availability slots, schedules Main & Sub-Interviews with real-time workflow tracking, and leverages SignalR for live status updates and interview notifications.",
+      "Client Accreditation (DMW/POEA) & Visa Processing: Tracks DMW (Philippines) client accreditation compliance and step-by-step milestone pipelines for candidate visa applications, medical clearances, and travel itineraries.",
+      "Architecture & Azure Cloud Highlights: Architected with ASP.NET Web API (.NET 8) Clean Architecture, Yarp.ReverseProxy API Gateway, DbUp automated PostgreSQL migrations, JWT & MFA security, Azure Service Bus queues (interview & document expiry alerts), Azure Functions serverless workers, and Azure Blob Storage."
     ],
-    tech: ["Angular", "Node.js", "MongoDB", "Express", "TypeScript"],
+    tech: ["Angular 18", "TypeScript", "ASP.NET Web API", ".NET 8", "C#", "EF Core", "PostgreSQL", "Azure Service Bus", "Azure Functions", "Yarp.ReverseProxy", "SignalR", "DbUp"],
     featured: true
   }
 ];
 
 export const experienceTimeline = [
   {
-    role: "Full-Stack Software Engineer",
-    company: "Core Technology Solutions",
-    period: "2024 — Present",
-    desc: "Designing and engineering scalable full-stack applications with React, Angular, Node.js, and .NET. Building optimized SQL & PostgreSQL database schemas and high-throughput REST APIs.",
+    type: "work",
+    role: "Freelance Full-Stack Developer",
+    company: "Freelance",
+    period: "July 2024 — Present",
+    desc: "Designing and engineering bespoke full-stack web applications, REST API architectures, and high-performance user interfaces for global clients using React, Angular, Node.js, .NET, PostgreSQL, SQL Server, and MongoDB.",
     achievements: [
-      "Developed high-performance web applications serving thousands of active users",
-      "Created scalable database architectures with PostgreSQL and MongoDB",
-      "Implemented responsive, component-driven UIs in React and Angular"
+      "Delivered production-ready full-stack web applications and custom API services for client contracts",
+      "Architected scalable relational and NoSQL database schemas with PostgreSQL, SQL Server, and MongoDB",
+      "Created responsive design systems, interactive components, and optimized Core Web Vitals performance"
     ]
   },
   {
-    role: "Frontend Developer & Web Specialist",
-    company: "Digital Innovation Lab",
-    period: "2023 — 2024",
-    desc: "Spearheaded frontend web application development for client products spanning e-commerce, healthcare, luxury real estate, and travel.",
+    type: "work",
+    role: "Software Engineering Intern",
+    company: "IBM",
+    period: "Jan — June 2024",
+    desc: "Completed an intensive 6-month software engineering internship at IBM. Focused on building enterprise web application modules, API integrations, cloud-connected microservices, and front-end performance optimizations.",
     achievements: [
-      "Crafted 6+ bespoke web applications deployed on Netlify with 99.9% uptime",
-      "Optimized page speed and Core Web Vitals to achieve sub-second load times",
-      "Built custom design systems and glassmorphic UI interfaces"
+      "Engineered scalable web components and modular user interfaces using modern web standards",
+      "Integrated backend REST API services and optimized data fetching performance",
+      "Collaborated with cross-functional engineering teams in agile development sprints and code reviews"
+    ]
+  },
+  {
+    type: "education",
+    role: "B.E. in Computer Engineering",
+    company: "Vishwakarma Government Engineering College",
+    period: "2020 — 2024",
+    desc: "Completed Bachelor of Engineering degree with a focus on core computer science foundations, data structures & algorithms, database systems, software engineering, and modern web application development.",
+    achievements: [
+      "Graduated with First Class Distinction — CGPA: 9.10 / 10",
+      "Specialized in Software Engineering, Web Technologies & Database Systems",
+      "Engineered full-stack capstone projects and interactive web systems"
     ]
   }
 ];
