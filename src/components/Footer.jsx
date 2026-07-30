@@ -1,8 +1,8 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp, Code, Heart } from 'lucide-react';
+import { ArrowUp, Code, Heart, FileText } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onOpenResume }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -38,6 +38,18 @@ export default function Footer() {
 
           {/* Right Actions */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {onOpenResume && (
+              <button
+                onClick={onOpenResume}
+                className="badge"
+                style={{ cursor: 'pointer', padding: '0.5rem 0.85rem', gap: '0.4rem', color: 'var(--accent-light)', borderColor: 'var(--border-bright)' }}
+                title="View & Download Resume PDF"
+              >
+                <FileText size={14} />
+                <span>Resume PDF</span>
+              </button>
+            )}
+
             <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
               IST (UTC+5:30)
             </span>

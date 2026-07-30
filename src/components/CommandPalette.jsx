@@ -9,10 +9,11 @@ import {
   Mail,
   Palette,
   Copy,
-  ArrowRight
+  ArrowRight,
+  FileText
 } from 'lucide-react';
 
-export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEmail, setTheme }) {
+export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEmail, setTheme, onOpenResume }) {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const listRef = useRef(null);
@@ -27,6 +28,7 @@ export default function CommandPalette({ isOpen, onClose, onCopyEmail, copiedEma
   };
 
   const actions = [
+    { id: 'resume', label: 'View & Download Interactive Resume PDF', icon: <FileText size={16} color="var(--accent-light)" />, action: () => { onOpenResume(); onClose(); } },
     { id: 'about', label: 'Go to About & Philosophy', icon: <Terminal size={16} />, action: () => handleScrollTo('about') },
     { id: 'skills', label: 'Go to Skills & Tech Stack', icon: <Code size={16} />, action: () => handleScrollTo('skills') },
     { id: 'projects', label: 'Go to Featured Projects', icon: <Folder size={16} />, action: () => handleScrollTo('projects') },

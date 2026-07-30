@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowRight, Copy, Check, Download } from 'lucide-react';
+import { ArrowRight, Copy, Check, Download, FileText } from 'lucide-react';
 
-export default function Hero({ onCopyEmail, copiedEmail }) {
+export default function Hero({ onCopyEmail, copiedEmail, onOpenResume }) {
   // Typewriter effect state
   const phrases = [
     'premium web applications.',
@@ -149,17 +149,15 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
               Get In Touch
             </a>
 
-            <a
-              href="/vian-pandya_resume.pdf"
-              download="vian-pandya_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={onOpenResume}
               className="btn-secondary"
               id="download-cv-btn"
+              title="Open Interactive Resume & Download PDF"
             >
-              <Download size={18} />
-              <span>Resume</span>
-            </a>
+              <FileText size={18} color="var(--accent-light)" />
+              <span>Resume PDF</span>
+            </button>
 
             <button
               onClick={() => onCopyEmail(personalInfo.email)}

@@ -15,12 +15,97 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 
+function ImageWithPreload({ src, alt, className, style }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    if (!src) return;
+    const img = new Image();
+    img.src = src;
+    if (img.complete) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: '#090d16' }}>
+      {!isLoaded && !hasError && (
+        <div 
+          className="skeleton-loader"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justify: 'center'
+          }}
+        >
+          <div style={{ color: 'var(--text-dim)', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'var(--font-mono)' }}>
+            <span className="pulse-dot" /> Loading preview...
+          </div>
+        </div>
+      )}
+
+      {hasError ? (
+        <div 
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justify: 'center',
+            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+            color: 'var(--accent-light)',
+            padding: '1rem',
+            textAlign: 'center'
+          }}
+        >
+          <Code size={28} style={{ marginBottom: '0.4rem', opacity: 0.8 }} />
+          <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>{alt}</span>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className={className}
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          style={{
+            ...style,
+            opacity: isLoaded ? 1 : 0,
+            filter: isLoaded ? 'blur(0px) scale(1)' : 'blur(10px) scale(1.08)',
+            transform: isLoaded ? 'scale(1)' : 'scale(1.08)',
+            transition: 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 export default function Projects() {
   const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
   const tabs = ['All', 'Frontend', 'Full-Stack'];
+
+  // Eagerly preload all project images in background as soon as component mounts
+  useEffect(() => {
+    projectsData.forEach((project) => {
+      if (project.image) {
+        const img = new Image();
+        img.src = project.image;
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -112,11 +197,10 @@ export default function Projects() {
             >
               {/* Top Website Image Preview Area */}
               <div className="project-image-wrapper">
-                <img
+                <ImageWithPreload
                   src={project.image}
                   alt={project.title}
                   className="project-card-image"
-                  loading="lazy"
                 />
                 <div className="project-image-overlay">
                   <div className="project-hover-circle" title="View Project Details">
@@ -124,6 +208,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
+
 
               {/* Bottom Card Content Box */}
               <div style={{ padding: '1.65rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
