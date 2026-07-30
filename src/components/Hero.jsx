@@ -63,7 +63,7 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
       }}
       className="bg-grid-pattern"
     >
-      <div className="container" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
+      <div className="container animate-fade-in-up" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
 
         <div style={{ maxWidth: '900px' }}>
           {/* Glowing Badge */}

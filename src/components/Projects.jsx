@@ -245,16 +245,7 @@ export default function Projects() {
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
             <button
               onClick={() => setShowAll(!showAll)}
-              className="btn-secondary"
-              style={{
-                padding: '0.85rem 2rem',
-                fontSize: '0.95rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                borderRadius: '0.6rem',
-                cursor: 'pointer'
-              }}
+              className="btn-moving-border"
             >
               <span>{showAll ? 'Show Less Projects' : `View More Projects`}</span>
               {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
