@@ -138,27 +138,8 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
           ))}
         </div>
 
-        {/* Actions (Resume PDF, Command Palette, Theme Picker & Mobile Menu) */}
+        {/* Actions (Command Palette, Theme Picker & Mobile Menu) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          
-          {/* Resume Modal Trigger Button (Desktop & Mobile) */}
-          <button
-            onClick={onOpenResume}
-            className="btn-primary"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.45rem 0.95rem',
-              fontSize: '0.82rem',
-              borderRadius: '0.6rem',
-              cursor: 'pointer'
-            }}
-            title="View & Download Interactive Resume PDF"
-          >
-            <FileText size={15} />
-            <span style={{ fontWeight: 600 }}>Resume</span>
-          </button>
 
           {/* Command Palette Info & Trigger Button (Desktop Only) */}
           <button
@@ -268,20 +249,6 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
               {link.name}
             </a>
           ))}
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenResume();
-            }}
-            className="btn-primary"
-            style={{
-              width: '100%',
-              justifyContent: 'center',
-              marginTop: '0.5rem'
-            }}
-          >
-            <FileText size={18} /> View Resume PDF
-          </button>
         </div>
       )}
 

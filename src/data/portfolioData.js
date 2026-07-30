@@ -128,7 +128,7 @@ export const projectsData = [
     id: "luxewear",
     title: "LUXEWEAR — Premium E-Commerce Showcase",
     category: "Frontend",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop",
     url: "https://luxe-wear.netlify.app/",
     description: "Luxury fashion e-commerce storefront built with React 19, Vite, and Tailwind CSS v4. Features Framer Motion physics animations, interactive preloader, product double-image hover swaps, and Swiper v14 product carousels.",
     highlights: [
