@@ -11,7 +11,8 @@ import {
   Server,
   Globe,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function Projects() {
@@ -105,135 +106,154 @@ export default function Projects() {
           {visibleProjects.map((project) => (
             <div
               key={project.id}
-              className="glass-card"
-              style={{
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justify: 'space-between',
-                position: 'relative',
-                cursor: 'pointer'
-              }}
+              className="glass-card project-card-box"
               onClick={() => setSelectedProject(project)}
+              style={{ cursor: 'pointer' }}
             >
-              <div>
-                {/* Header Category Badge & Type */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <span
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      fontSize: '0.78rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: project.category === 'Frontend' ? 'var(--accent-teal)' : 'var(--accent-primary)',
-                      background: project.category === 'Frontend' ? 'rgba(16, 185, 129, 0.12)' : 'var(--accent-glow)',
-                      padding: '0.25rem 0.75rem',
-                      borderRadius: '9999px',
-                      fontWeight: 600
-                    }}
-                  >
-                    {project.category === 'Frontend' ? <Globe size={12} /> : <Server size={12} />}
-                    {project.category}
-                  </span>
-
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="badge"
-                      onClick={(e) => e.stopPropagation()}
-                      style={{
-                        fontSize: '0.78rem',
-                        gap: '0.3rem',
-                        color: 'var(--text-main)',
-                        borderColor: 'var(--accent-primary)',
-                        textDecoration: 'none'
-                      }}
-                    >
-                      <span>Live Site</span>
-                      <ExternalLink size={12} />
-                    </a>
-                  )}
+              {/* Top Website Image Preview Area */}
+              <div className="project-image-wrapper">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-card-image"
+                  loading="lazy"
+                />
+                <div className="project-image-overlay">
+                  <div className="project-hover-circle" title="View Project Details">
+                    <ArrowUpRight size={24} />
+                  </div>
                 </div>
-
-                {/* Project Title */}
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.25rem',
-                    fontWeight: 700,
-                    color: 'var(--text-main)',
-                    lineHeight: 1.3,
-                    marginBottom: '0.6rem'
-                  }}
-                >
-                  {project.title}
-                </h3>
-
-                {/* Compact Description (2 lines max) */}
-                <p
-                  style={{
-                    color: 'var(--text-muted)',
-                    fontSize: '0.88rem',
-                    lineHeight: 1.5,
-                    marginBottom: '1.25rem',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden'
-                  }}
-                >
-                  {project.description}
-                </p>
               </div>
 
-              {/* Bottom Tech Pills & Actions */}
-              <div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.25rem' }}>
-                  {project.tech.slice(0, 4).map((t, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        fontSize: '0.75rem',
-                        fontFamily: 'var(--font-mono)',
-                        background: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid var(--border-subtle)',
-                        padding: '0.2rem 0.55rem',
-                        borderRadius: '0.35rem',
-                        color: 'var(--text-muted)'
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                  {project.tech.length > 4 && (
+              {/* Bottom Card Content Box */}
+              <div style={{ padding: '1.65rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                <div>
+                  {/* Category Accent Line & Badge */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
                     <span
                       style={{
-                        fontSize: '0.75rem',
+                        height: '2px',
+                        width: '22px',
+                        background: 'var(--accent-primary)',
+                        borderRadius: '2px'
+                      }}
+                    />
+                    <span
+                      style={{
+                        fontSize: '0.74rem',
                         fontFamily: 'var(--font-mono)',
-                        color: 'var(--accent-light)',
-                        padding: '0.2rem 0.3rem'
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        color: 'var(--accent-primary)',
+                        fontWeight: 700
                       }}
                     >
-                      +{project.tech.length - 4} more
+                      {project.category.toUpperCase()} PROJECT
                     </span>
-                  )}
+                  </div>
+
+                  {/* Project Title */}
+                  <div style={{ marginBottom: '0.8rem' }}>
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.35rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        color: 'var(--text-main)',
+                        margin: 0,
+                        lineHeight: 1.25
+                      }}
+                    >
+                      {project.title.split('—')[0].trim()}
+                    </h3>
+                  </div>
+
+                  {/* Project Description */}
+                  <p
+                    style={{
+                      color: 'var(--text-muted)',
+                      fontSize: '0.88rem',
+                      lineHeight: 1.6,
+                      marginBottom: '1.35rem',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden'
+                    }}
+                  >
+                    {project.description}
+                  </p>
                 </div>
 
+                {/* Bottom Tech Capsules & Side-by-Side Action Buttons */}
                 <div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedProject(project);
-                    }}
-                    className="btn-secondary"
-                    style={{ width: '100%', justifyContent: 'center', padding: '0.65rem', fontSize: '0.88rem' }}
-                  >
-                    View Details
-                  </button>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.25rem' }}>
+                    {project.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          fontSize: '0.72rem',
+                          fontFamily: 'var(--font-mono)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.04em',
+                          background: 'rgba(255, 255, 255, 0.04)',
+                          border: '1px solid var(--border-subtle)',
+                          padding: '0.3rem 0.75rem',
+                          borderRadius: '9999px',
+                          color: 'var(--text-muted)',
+                          fontWeight: 600
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="project-actions-row">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project);
+                      }}
+                      className="btn-secondary"
+                      style={{
+                        flex: project.url ? 1 : 'none',
+                        width: project.url ? 'auto' : '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        textAlign: 'center',
+                        padding: '0.65rem 1rem',
+                        fontSize: '0.88rem',
+                        borderRadius: '0.6rem'
+                      }}
+                    >
+                      <span>View Details</span>
+                    </button>
+
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="live-preview-btn"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                          flex: 1,
+                          justifyContent: 'center',
+                          padding: '0.65rem 1rem',
+                          borderRadius: '0.6rem',
+                          fontSize: '0.88rem'
+                        }}
+                      >
+                        <span>Live Preview</span>
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
+
               </div>
 
             </div>

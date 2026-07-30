@@ -365,8 +365,8 @@ body {
 }
 
 .btn-moving-border:hover::before {
-  animation-play-state: paused;
-  background: var(--accent-primary);
+  animation: none !important;
+  background: var(--accent-primary) !important;
 }
 
 .btn-moving-border:hover::after {
@@ -377,6 +377,110 @@ body {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 0 30px var(--accent-glow), 0 12px 30px -5px rgba(0, 0, 0, 0.6);
   color: #ffffff;
+}
+
+/* Project Card Image & Hover Overlay (Reference Design) */
+.project-card-box {
+  overflow: hidden !important;
+  padding: 0 !important;
+  border-radius: 1.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #060911;
+}
+
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 12, 0.45);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-hover-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: scale(0.7);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-box:hover .project-card-image {
+  transform: scale(1.06);
+  filter: blur(4px) brightness(0.65);
+}
+
+.project-card-box:hover .project-image-overlay {
+  opacity: 1;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.project-card-box:hover .project-hover-circle {
+  transform: scale(1);
+}
+
+/* Live Preview Pill Button */
+.live-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  background: var(--accent-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  box-shadow: 0 0 18px var(--accent-glow);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.live-preview-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 25px var(--accent-glow);
+  filter: brightness(1.15);
+}
+
+/* Responsive Action Row for Project Buttons */
+.project-actions-row {
+  display: flex;
+  gap: 0.65rem;
+}
+
+@media (max-width: 480px) {
+  .project-actions-row {
+    flex-direction: column;
+  }
 }
 
 @keyframes rotateBorder {

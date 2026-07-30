@@ -64,6 +64,7 @@ export const projectsData = [
     id: "waveform",
     title: "WaveForm — The Audio Technology Conference",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop",
     url: "https://waveform-technology-conference.netlify.app/",
     description: "High-performance Single Page Application (SPA) built with Vanilla JavaScript and HTML5/CSS3. Features a live event countdown, procedural audio waveform visualizer engine, interactive multi-track schedule filter, speaker detail modals, and an interactive ticket calculator.",
     highlights: [
@@ -79,6 +80,7 @@ export const projectsData = [
     id: "medicare-one",
     title: "Medicare-One — Premium Healthcare Hospital",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop",
     url: "https://medicare-one.netlify.app/",
     description: "Single-page medical portal built with React, TypeScript, and Vite. Features a pulse-animated loader, real-time doctor search & filtering, a 3-step appointment booking wizard, preventive health plans, and 24/7 emergency care.",
     highlights: [
@@ -94,6 +96,7 @@ export const projectsData = [
     id: "aurum-estates",
     title: "Aurum Estates — Ultra-Luxury Real Estates",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
     url: "https://aurum-real-estates.netlify.app/",
     description: "Ultra-luxury real estate web application built with Angular 18, TypeScript, and Tailwind CSS v4. Features Cormorant Garamond serif aesthetics, multi-tab property filtering, interactive mortgage calculator, and property detail modals.",
     highlights: [
@@ -109,6 +112,7 @@ export const projectsData = [
     id: "growthwave",
     title: "GrowthWave — Digital Marketing Agency",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     url: "https://growth-wave.netlify.app/",
     description: "Interactive digital marketing agency web app built with Angular 18, TypeScript, and Tailwind CSS. Features live interactive analytics dashboards (Chart.js), animated CountUp metrics, Swiper carousels, and multi-package pricing tiers.",
     highlights: [
@@ -124,6 +128,7 @@ export const projectsData = [
     id: "luxewear",
     title: "LUXEWEAR — Premium E-Commerce Showcase",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
     url: "https://luxe-wear.netlify.app/",
     description: "Luxury fashion e-commerce storefront built with React 19, Vite, and Tailwind CSS v4. Features Framer Motion physics animations, interactive preloader, product double-image hover swaps, and Swiper v14 product carousels.",
     highlights: [
@@ -139,6 +144,7 @@ export const projectsData = [
     id: "aura-expeditions",
     title: "Aura-Expeditions — Premium Travel & Tour Agency",
     category: "Frontend",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop",
     url: "https://aura-expeditions.netlify.app/",
     description: "Premium travel booking & expedition platform built with React 19 and Vite 8. Features real-time destination search, a multi-step custom trip builder, climate guides, and universal consultation booking.",
     highlights: [
@@ -156,6 +162,7 @@ export const projectsData = [
     id: "restaurant-mgmt",
     title: "Restaurant Management System",
     category: "Full-Stack",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description: "Role-based Restaurant Management System built with ASP.NET MVC (.NET), C#, and PostgreSQL. Streamlines end-to-end restaurant operations including customer registration, table allocation with an optimized table-merging algorithm, order processing, kitchen workflows (KOT), and administrative management.",
     highlights: [
@@ -171,6 +178,7 @@ export const projectsData = [
     id: "event-mgmt",
     title: "Event Management System",
     category: "Full-Stack",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description: "Enterprise Event Management System built with Angular 21, TypeScript, Kendo UI, ASP.NET Web API (.NET), and SQL Server. Streamlines the complete event planning lifecycle from client onboarding and inquiry conversion to sub-event management, tree-structured rate cards, and warehouse product allocations.",
     highlights: [
@@ -187,6 +195,7 @@ export const projectsData = [
     id: "project-mgmt",
     title: "Project Management System",
     category: "Full-Stack",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description: "Enterprise-grade Project Management Platform built on the PERN stack (PostgreSQL, Express, React, Node.js). Enables cross-functional agile teams to collaborate on project planning, task management, sprint tracking, resource allocation, real-time activity feeds, and project analytics.",
     highlights: [
@@ -203,6 +212,7 @@ export const projectsData = [
     id: "dynamic-report-mgmt",
     title: "Dynamic Report Generation System",
     category: "Full-Stack",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description: "Multi-tenant Dynamic Report Generation System built with ASP.NET Web API (.NET), C#, Dapper, and Kendo UI. Enables non-technical enterprise users to visually build, customize, execute, and export complex database reports across multiple database engines without writing SQL queries.",
     highlights: [
@@ -219,6 +229,7 @@ export const projectsData = [
     id: "recruitment-mgmt",
     title: "Recruitment & Immigration Management System",
     category: "Full-Stack",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description: "Enterprise-grade Recruitment, Immigration, and Visa Management System built with Angular 18, ASP.NET Web API (.NET 8), C#, EF Core, PostgreSQL, and Azure Cloud Infrastructure. Streamlines the end-to-end global talent acquisition lifecycle, job orders, candidate onboarding, POEA/DMW client accreditation, interview scheduling, and complex visa/immigration workflow compliance for Perdaman Global Services (PGS).",
     highlights: [
