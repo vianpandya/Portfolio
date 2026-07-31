@@ -14,7 +14,7 @@ export default function App() {
   const [theme, setTheme] = useState('indigo');
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  
+
   // Intro Loader States
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
@@ -75,7 +75,7 @@ export default function App() {
     <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-dark)' }}>
       {/* Intro Loader Screen */}
       {loading && (
-        <div 
+        <div
           style={{
             position: 'fixed',
             inset: 0,
@@ -95,7 +95,7 @@ export default function App() {
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', maxWidth: '300px', width: '100%' }}>
             {/* Custom Logo/Monogram with Pulsing Accent Glow */}
-            <div 
+            <div
               style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '2.25rem',
@@ -128,7 +128,7 @@ export default function App() {
             </div>
 
             {/* Progress Bar Container */}
-            <div 
+            <div
               style={{
                 width: '100%',
                 height: '4px',
@@ -139,7 +139,7 @@ export default function App() {
               }}
             >
               {/* Progress Fill */}
-              <div 
+              <div
                 style={{
                   height: '100%',
                   width: `${progress}%`,
@@ -155,10 +155,10 @@ export default function App() {
       )}
 
       {/* Navbar */}
-      <Navbar 
-        activeTheme={theme} 
-        setTheme={setTheme} 
-        onOpenPalette={() => setPaletteOpen(true)} 
+      <Navbar
+        activeTheme={theme}
+        setTheme={setTheme}
+        onOpenPalette={() => setPaletteOpen(true)}
       />
 
       {/* Main Sections */}
@@ -175,9 +175,9 @@ export default function App() {
       <Footer />
 
       {/* Global Command Palette (Ctrl + K) */}
-      <CommandPalette 
-        isOpen={paletteOpen} 
-        onClose={() => setPaletteOpen(false)} 
+      <CommandPalette
+        isOpen={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
         onCopyEmail={handleCopyEmail}
         copiedEmail={copiedEmail}
         setTheme={setTheme}
@@ -185,13 +185,13 @@ export default function App() {
 
       {/* Toast Floating Notification */}
       {copiedEmail && (
-        <div 
-          style={{ 
-            position: 'fixed', 
-            bottom: '2rem', 
-            right: '2rem', 
-            zIndex: 200, 
-            background: 'var(--bg-card)', 
+        <div
+          style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            zIndex: 200,
+            background: 'var(--bg-card)',
             backdropFilter: 'blur(16px)',
             border: '1px solid var(--accent-teal)',
             color: 'var(--text-main)',

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { 
-  Code, 
-  Terminal, 
-  Sparkles, 
-  Layers, 
-  Mail, 
-  Menu, 
-  X, 
-  Palette, 
+import {
+  Code,
+  Terminal,
+  Sparkles,
+  Layers,
+  Mail,
+  Menu,
+  X,
+  Palette,
   Search,
   FileText
 } from 'lucide-react';
@@ -54,7 +54,7 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
   };
 
   return (
-    <nav 
+    <nav
       style={{
         position: 'fixed',
         top: 0,
@@ -71,21 +71,21 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Logo */}
-        <a 
-          href="#" 
+        <a
+          href="#"
           onClick={(e) => handleNavClick(e, '#')}
-          style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '0.75rem', 
-            textDecoration: 'none', 
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            textDecoration: 'none',
             color: 'var(--text-main)',
             fontFamily: 'var(--font-heading)',
             fontWeight: 700,
             fontSize: '1.2rem'
           }}
         >
-          <div 
+          <div
             style={{
               width: '38px',
               height: '38px',
@@ -106,10 +106,10 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
         </a>
 
         {/* Desktop Nav Links */}
-        <div 
-          style={{ 
-            display: 'none', 
-            alignItems: 'center', 
+        <div
+          style={{
+            display: 'none',
+            alignItems: 'center',
             gap: '2rem',
             background: 'rgba(255, 255, 255, 0.03)',
             padding: '0.4rem 1.5rem',
@@ -158,12 +158,12 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
           >
             <Search size={14} color="var(--accent-light)" />
             <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>Palette</span>
-            <kbd 
-              style={{ 
-                fontSize: '0.7rem', 
-                fontFamily: 'var(--font-mono)', 
-                background: 'rgba(255,255,255,0.08)', 
-                padding: '0.15rem 0.4rem', 
+            <kbd
+              style={{
+                fontSize: '0.7rem',
+                fontFamily: 'var(--font-mono)',
+                background: 'rgba(255,255,255,0.08)',
+                padding: '0.15rem 0.4rem',
                 borderRadius: '0.3rem',
                 color: 'var(--text-muted)',
                 border: '1px solid var(--border-subtle)'
@@ -215,7 +215,7 @@ export default function Navbar({ activeTheme, setTheme, onOpenPalette, onOpenRes
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div 
+        <div
           style={{
             position: 'absolute',
             top: '100%',

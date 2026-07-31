@@ -16,8 +16,8 @@ export default function Footer() {
   };
 
   return (
-    <footer 
-      style={{ 
+    <footer
+      style={{
         borderTop: '1px solid var(--border-subtle)',
         padding: '4rem 0 2rem 0',
         background: 'rgba(5, 7, 12, 0.95)',
@@ -25,10 +25,10 @@ export default function Footer() {
       }}
     >
       <div className="container">
-        <div 
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '2.5rem',
             marginBottom: '3rem'
           }}
@@ -55,16 +55,16 @@ export default function Footer() {
               Connect & Resources
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <a 
-                href={personalInfo.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  color: 'var(--text-muted)', 
-                  textDecoration: 'none', 
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'var(--text-muted)',
+                  textDecoration: 'none',
                   fontSize: '0.9rem'
                 }}
                 className="footer-link-item"
@@ -73,14 +73,14 @@ export default function Footer() {
                 <span>LinkedIn Profile</span>
               </a>
 
-              <a 
+              <a
                 href={`mailto:${personalInfo.email}`}
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  color: 'var(--text-muted)', 
-                  textDecoration: 'none', 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'var(--text-muted)',
+                  textDecoration: 'none',
                   fontSize: '0.9rem'
                 }}
                 className="footer-link-item"
@@ -89,16 +89,16 @@ export default function Footer() {
                 <span>{personalInfo.email}</span>
               </a>
 
-              <a 
+              <a
                 href="/vian-pandya_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  color: 'var(--text-muted)', 
-                  textDecoration: 'none', 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'var(--text-muted)',
+                  textDecoration: 'none',
                   fontSize: '0.9rem'
                 }}
                 className="footer-link-item"
@@ -114,7 +114,7 @@ export default function Footer() {
             <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
               Work & Logistics
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                 <Globe size={16} style={{ marginTop: '0.15rem', color: 'var(--text-dim)' }} />
@@ -136,25 +136,25 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright & scrollToTop */}
-        <div 
+        <div
           className="footer-bottom"
-          style={{ 
-            borderTop: '1px solid rgba(255, 255, 255, 0.04)', 
-            marginTop: '2rem', 
-            paddingTop: '1.5rem', 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            justifyContent: 'space-between', 
-            alignItems: 'center', 
+          style={{
+            borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+            marginTop: '2rem',
+            paddingTop: '1.5rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             gap: '1rem',
-            fontSize: '0.8rem', 
-            color: 'var(--text-dim)' 
+            fontSize: '0.8rem',
+            color: 'var(--text-dim)'
           }}
         >
           <div>
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved. Built with React, Vite & Modern Web Standards.
           </div>
-          
+
           <button
             onClick={scrollToTop}
             className="back-to-top-btn"

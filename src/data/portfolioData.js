@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Vian Pandya",
   title: "Freelance Full-Stack Developer & UI Architect",
   email: "vianpandya66@gmail.com",
-  linkedin: "https://www.linkedin.com/in/vian-pandya-b6b885424/",
+  linkedin: "https://www.linkedin.com/in/vian-pandya",
   location: "Available Remote / Worldwide",
   status: "Available for Freelance Projects & Contracts",
   bio: "Freelance Full-Stack Developer specialized in delivering high-converting web apps, robust backend APIs, and custom frontend experiences with React, Angular, Node.js, .NET, SQL Server, PostgreSQL, SQL & MongoDB.",
@@ -495,7 +495,7 @@ export const experienceTimeline = [
     period: "2020 — 2024",
     desc: "Completed Bachelor of Engineering degree with a focus on core computer science foundations, data structures & algorithms, database systems, software engineering, and modern web application development.",
     achievements: [
-      "Graduated with First Class Distinction — CGPA: 9.10 / 10",
+      "Graduated with First Class Distinction — CGPA: 9.20 / 10",
       "Specialized in Software Engineering, Web Technologies & Database Systems",
       "Engineered full-stack capstone projects and interactive web systems",
     ],
