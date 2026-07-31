@@ -14,10 +14,34 @@ export default function App() {
   const [theme, setTheme] = useState('indigo');
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  
+  // Intro Loader States
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    // Simulate loading progress
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setFadeOut(true);
+          setTimeout(() => setLoading(false), 500); // match transition duration
+          return 100;
+        }
+        // Slower increment for a longer loading duration
+        const next = prev + Math.floor(Math.random() * 4) + 2;
+        return next > 100 ? 100 : next;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleGlobalKeyDown = (e) => {
@@ -49,6 +73,87 @@ export default function App() {
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-dark)' }}>
+      {/* Intro Loader Screen */}
+      {loading && (
+        <div 
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: '#090b10', // matches var(--bg-dark)
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            fontFamily: 'var(--font-heading)',
+            color: 'var(--text-main)',
+            opacity: fadeOut ? 0 : 1,
+            transform: fadeOut ? 'scale(1.02)' : 'scale(1)',
+            transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
+            pointerEvents: fadeOut ? 'none' : 'all'
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', maxWidth: '300px', width: '100%' }}>
+            {/* Custom Logo/Monogram with Pulsing Accent Glow */}
+            <div 
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '2.25rem',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '76px',
+                height: '76px',
+                borderRadius: '1.1rem',
+                background: 'rgba(255, 255, 255, 0.01)',
+                border: '1px solid var(--border-bright)',
+                boxShadow: '0 0 25px var(--accent-glow)',
+                animation: 'pulseLogo 2s ease-in-out infinite'
+              }}
+            >
+              <span style={{ color: 'var(--accent-light)' }}>V</span>
+              <span style={{ color: 'var(--text-main)' }}>P</span>
+            </div>
+
+            {/* Status Information */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.35rem' }}>
+              <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
+                Initializing Portfolio
+              </div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', fontFamily: 'var(--font-mono)' }}>
+                {progress}%
+              </div>
+            </div>
+
+            {/* Progress Bar Container */}
+            <div 
+              style={{
+                width: '100%',
+                height: '4px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '999px',
+                overflow: 'hidden',
+                border: '1px solid var(--border-subtle)'
+              }}
+            >
+              {/* Progress Fill */}
+              <div 
+                style={{
+                  height: '100%',
+                  width: `${progress}%`,
+                  background: 'linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-light) 100%)',
+                  boxShadow: '0 0 10px var(--accent-primary)',
+                  transition: 'width 0.1s ease-out',
+                  borderRadius: '999px'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navbar */}
       <Navbar 
         activeTheme={theme} 

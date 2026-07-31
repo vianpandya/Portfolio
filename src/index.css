@@ -601,3 +601,92 @@ body {
     padding: 1.25rem !important;
   }
 }
+
+/* Footer Link Hover Animations */
+.footer-link-item {
+  transition: var(--transition-fast);
+}
+
+.footer-link-item:hover {
+  color: var(--accent-light) !important;
+  transform: translateX(4px);
+}
+
+/* Back to Top Button Styling and Animation */
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 8px var(--accent-glow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: bounceUpDown 2s ease-in-out infinite, breathePulse 3s ease-in-out infinite;
+  text-decoration: none;
+}
+
+.back-to-top-btn:hover {
+  animation: breathePulse 3s ease-in-out infinite; /* Disable bounce on hover so transition works smoothly */
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 18px var(--accent-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.back-to-top-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.back-to-top-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+@keyframes breathePulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 8px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 16px var(--accent-primary);
+  }
+}
+
+@keyframes bounceUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Loader Monogram Pulse Animation */
+@keyframes pulseLogo {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px var(--accent-glow);
+    border-color: var(--border-bright);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--accent-glow), 0 0 15px var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+}

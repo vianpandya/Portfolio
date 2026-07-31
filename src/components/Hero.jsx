@@ -76,7 +76,7 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
+              fontSize: 'clamp(2rem, 4vw, 3.25rem)',
               fontWeight: 800,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
@@ -84,8 +84,8 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
               color: 'var(--text-main)'
             }}
           >
-            Crafting Scalable <br />
-            <span className="accent-text">Full-Stack Architecture</span>
+            Building Fast, Scalable <br />
+            <span className="accent-text">Web Applications</span> That Help Businesses Grow.
           </h1>
 
           {/* Typewriter Subtitle */}

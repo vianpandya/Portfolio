@@ -404,6 +404,35 @@ export default function Projects() {
               {selectedProject.description}
             </p>
 
+            {selectedProject.businessValue && selectedProject.businessValue.length > 0 && (
+              <>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--accent-teal)' }}>
+                  Business Value & Impact
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.5rem' }}>
+                  {selectedProject.businessValue.map((bv, idx) => (
+                    <div 
+                      key={idx} 
+                      style={{ 
+                        display: 'flex', 
+                        gap: '0.75rem', 
+                        alignItems: 'flex-start',
+                        background: 'rgba(16, 185, 129, 0.04)',
+                        padding: '0.8rem 1.15rem',
+                        borderRadius: '0.6rem',
+                        border: '1px solid rgba(16, 185, 129, 0.15)'
+                      }}
+                    >
+                      <CheckCircle size={16} color="var(--accent-teal)" style={{ flexShrink: 0, marginTop: '0.15rem' }} />
+                      <span style={{ fontSize: '0.88rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                        {bv}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
             <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--accent-primary)' }}>
               Key Technical Features & Architecture
             </h4>
