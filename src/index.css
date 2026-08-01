@@ -622,8 +622,10 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff !important;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%); */
+  /* border: 1px solid rgba(255, 255, 255, 0.15); */
+  background: none;
+  border: 1px solid var(--accent-primary);
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 8px var(--accent-glow);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -635,7 +637,8 @@ body {
   animation: breathePulse 3s ease-in-out infinite; /* Disable bounce on hover so transition works smoothly */
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 18px var(--accent-primary);
-  border-color: rgba(255, 255, 255, 0.3);
+  /* border-color: rgba(255, 255, 255, 0.3); */
+  border-color: var(--accent-light);
 }
 
 .back-to-top-btn:active {

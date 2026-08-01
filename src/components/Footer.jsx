@@ -104,7 +104,7 @@ export default function Footer() {
                 className="footer-link-item"
               >
                 <FileText size={16} />
-                <span>Download Resume</span>
+                <span>Resume</span>
               </a>
             </div>
           </div>
