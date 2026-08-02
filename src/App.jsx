@@ -25,20 +25,20 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    // Simulate loading progress
+    // Dynamic larger numeric jumps
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setFadeOut(true);
-          setTimeout(() => setLoading(false), 500); // match transition duration
+          setTimeout(() => setLoading(false), 400); // match fade transition duration
           return 100;
         }
-        // Slower increment for a longer loading duration
-        const next = prev + Math.floor(Math.random() * 4) + 2;
+        // Larger jumps (+7 to +18 per tick)
+        const next = prev + Math.floor(Math.random() * 12) + 7;
         return next > 100 ? 100 : next;
       });
-    }, 100);
+    }, 110);
 
     return () => clearInterval(interval);
   }, []);

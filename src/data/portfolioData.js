@@ -40,6 +40,24 @@ export const skillsData = [
         desc: "Async/Await, Closures, DOM, Fetch API, Performance",
       },
       {
+        name: "Tailwind CSS",
+        level: 92,
+        tag: "Utility CSS",
+        desc: "Utility-First Styling, Custom Themes, Tailwind v4, Responsive Layouts",
+      },
+      {
+        name: "Bootstrap",
+        level: 88,
+        tag: "UI Framework",
+        desc: "Responsive Grid System, Component Architecture, Custom Utilities",
+      },
+      {
+        name: "Kendo UI",
+        level: 85,
+        tag: "Enterprise UI",
+        desc: "Advanced Data Grids, Charting, Hierarchical Rate Cards & Dashboards",
+      },
+      {
         name: "HTML5",
         level: 98,
         tag: "Markup",
