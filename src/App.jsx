@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import { Check, Sparkles } from 'lucide-react';
+import { trackEvent } from './utils/analytics';
 
 export default function App() {
   const [theme, setTheme] = useState('indigo');
@@ -68,6 +69,7 @@ export default function App() {
   const handleCopyEmail = (email) => {
     navigator.clipboard.writeText(email);
     setCopiedEmail(true);
+    trackEvent('copy_email', { email_address: email });
     setTimeout(() => setCopiedEmail(false), 3000);
   };
 
