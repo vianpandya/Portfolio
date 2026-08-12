@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { ArrowRight, Copy, Check, Download } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
+import SpotlightCard from './SpotlightCard';
+import AnimatedCounter from './AnimatedCounter';
 
 export default function Hero({ onCopyEmail, copiedEmail }) {
   // Typewriter effect state
@@ -63,113 +66,123 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
       }}
       className="bg-grid-pattern"
     >
-      <div className="container animate-fade-in-up" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
+      <div className="container" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
 
         <div style={{ maxWidth: '900px' }}>
           {/* Glowing Badge */}
-          <div className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
-            <span className="pulse-dot" />
-            <span>{personalInfo.status}</span>
-          </div>
+          <ScrollReveal delay={100} animation="fade-in-up">
+            <div className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
+              <span className="pulse-dot" />
+              <span>{personalInfo.status}</span>
+            </div>
+          </ScrollReveal>
 
           {/* Hero Main Heading */}
-          <h1
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2rem, 4vw, 3.25rem)',
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-              marginBottom: '1rem',
-              color: 'var(--text-main)'
-            }}
-          >
-            Building Fast, Scalable <br />
-            <span className="accent-text">Web Applications</span> That Help Businesses Grow.
-          </h1>
+          <ScrollReveal delay={250} animation="fade-in-up">
+            <h1
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(2rem, 4vw, 3.25rem)',
+                fontWeight: 800,
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                marginBottom: '1rem',
+                color: 'var(--text-main)'
+              }}
+            >
+              Building Fast, Scalable <br />
+              <span className="accent-text">Web Applications</span> That Help Businesses Grow.
+            </h1>
+          </ScrollReveal>
 
           {/* Typewriter Subtitle */}
-          <h2
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.85rem)',
-              fontWeight: 600,
-              color: 'var(--text-main)',
-              marginBottom: '1.5rem',
-              minHeight: '2.5rem'
-            }}
-          >
-            <span>Architecting </span>
-            <span style={{ color: 'var(--accent-light)', fontFamily: 'var(--font-mono)' }}>
-              {text}
-            </span>
-            <span
-              className="caret"
+          <ScrollReveal delay={400} animation="fade-in-up">
+            <h2
               style={{
-                display: 'inline-block',
-                width: '3px',
-                height: '0.9em',
-                backgroundColor: 'var(--accent-primary)',
-                marginLeft: '3px',
-                verticalAlign: 'middle',
-                animation: 'blink 1s infinite'
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1.25rem, 2.5vw, 1.85rem)',
+                fontWeight: 600,
+                color: 'var(--text-main)',
+                marginBottom: '1.5rem',
+                minHeight: '2.5rem'
               }}
-            />
-          </h2>
+            >
+              <span>Architecting </span>
+              <span style={{ color: 'var(--accent-light)', fontFamily: 'var(--font-mono)' }}>
+                {text}
+              </span>
+              <span
+                className="caret"
+                style={{
+                  display: 'inline-block',
+                  width: '3px',
+                  height: '0.9em',
+                  backgroundColor: 'var(--accent-primary)',
+                  marginLeft: '3px',
+                  verticalAlign: 'middle',
+                  animation: 'blink 1s infinite'
+                }}
+              />
+            </h2>
+          </ScrollReveal>
 
           {/* Hero Description */}
-          <p
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-              maxWidth: '740px',
-              lineHeight: 1.7,
-              marginBottom: '2.5rem'
-            }}
-          >
-            A software engineer specializing in building premium web applications, high-performance user interfaces, and robust backend architectures. Focused on turning complex code into user-centric experiences.
-          </p>
+          <ScrollReveal delay={550} animation="fade-in-up">
+            <p
+              style={{
+                color: 'var(--text-muted)',
+                fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
+                maxWidth: '740px',
+                lineHeight: 1.7,
+                marginBottom: '2.5rem'
+              }}
+            >
+              A software engineer specializing in building premium web applications, high-performance user interfaces, and robust backend architectures. Focused on turning complex code into user-centric experiences.
+            </p>
+          </ScrollReveal>
 
           {/* Action Buttons */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              gap: '1rem',
-              marginBottom: '4rem'
-            }}
-            className="hero-buttons-container"
-          >
-            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="btn-primary" id="view-projects-btn">
-              View Projects <ArrowRight size={18} />
-            </a>
-
-            <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="btn-secondary" id="contact-me-btn">
-              Get In Touch
-            </a>
-
-            <a
-              href="/vian-pandya_resume.pdf"
-              download="vian-pandya_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-              id="download-cv-btn"
+          <ScrollReveal delay={700} animation="fade-in-up">
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                gap: '1rem',
+                marginBottom: '4rem'
+              }}
+              className="hero-buttons-container"
             >
-              <Download size={18} />
-              <span>Resume</span>
-            </a>
+              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="btn-primary" id="view-projects-btn">
+                View Projects <ArrowRight size={18} />
+              </a>
 
-            <button
-              onClick={() => onCopyEmail(personalInfo.email)}
-              className="btn-secondary"
-              title="Copy email to clipboard"
-            >
-              {copiedEmail ? <Check size={18} color="var(--accent-teal)" /> : <Copy size={18} />}
-              <span>{copiedEmail ? 'Email Copied!' : personalInfo.email}</span>
-            </button>
-          </div>
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="btn-secondary" id="contact-me-btn">
+                Get In Touch
+              </a>
+
+              <a
+                href="/vian-pandya_resume.pdf"
+                download="vian-pandya_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                id="download-cv-btn"
+              >
+                <Download size={18} />
+                <span>Resume</span>
+              </a>
+
+              <button
+                onClick={() => onCopyEmail(personalInfo.email)}
+                className="btn-secondary"
+                title="Copy email to clipboard"
+              >
+                {copiedEmail ? <Check size={18} color="var(--accent-teal)" /> : <Copy size={18} />}
+                <span>{copiedEmail ? 'Email Copied!' : personalInfo.email}</span>
+              </button>
+            </div>
+          </ScrollReveal>
 
           {/* Interactive Stats Bar */}
           <div
@@ -180,36 +193,35 @@ export default function Hero({ onCopyEmail, copiedEmail }) {
             }}
           >
             {personalInfo.stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="glass-card"
-                style={{
-                  padding: '1.5rem',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                <div
+              <ScrollReveal key={idx} delay={850 + idx * 100} animation="zoom-in" style={{ display: 'flex', flex: 1 }}>
+                <SpotlightCard
                   style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '2.25rem',
-                    fontWeight: 700,
-                    color: 'var(--accent-primary)',
-                    marginBottom: '0.25rem'
+                    padding: '1.5rem',
+                    width: '100%'
                   }}
                 >
-                  {stat.value}
-                </div>
-                <div
-                  style={{
-                    color: 'var(--text-muted)',
-                    fontSize: '0.88rem',
-                    fontWeight: 500
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '2.25rem',
+                      fontWeight: 700,
+                      color: 'var(--accent-primary)',
+                      marginBottom: '0.25rem'
+                    }}
+                  >
+                    <AnimatedCounter value={stat.value} />
+                  </div>
+                  <div
+                    style={{
+                      color: 'var(--text-muted)',
+                      fontSize: '0.88rem',
+                      fontWeight: 500
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </SpotlightCard>
+              </ScrollReveal>
             ))}
           </div>
 

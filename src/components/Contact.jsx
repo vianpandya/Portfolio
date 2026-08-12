@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { Mail, Copy, Check, Send, MessageSquare, Globe, Sparkles, AlertCircle, ExternalLink } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
+import SpotlightCard from './SpotlightCard';
 
 const LinkedinIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,18 +81,20 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
       <div className="container">
 
         {/* Section Header */}
-        <div style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
-          <div className="badge" style={{ marginBottom: '0.75rem', display: 'inline-flex' }}>
-            <Mail size={14} />
-            <span>Direct Communication</span>
+        <ScrollReveal delay={100}>
+          <div style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
+            <div className="badge" style={{ marginBottom: '0.75rem', display: 'inline-flex' }}>
+              <Mail size={14} />
+              <span>Direct Communication</span>
+            </div>
+            <h2 className="section-title" style={{ textAlign: 'center', display: 'block' }}>
+              Let's Build Something <span className="accent-text">Exceptional</span>
+            </h2>
+            <p className="section-subtitle" style={{ margin: '0 auto' }}>
+              Whether you have a full-stack project, a backend architecture query, or a job opportunity—reach out directly to Vian Pandya.
+            </p>
           </div>
-          <h2 className="section-title" style={{ textAlign: 'center', display: 'block' }}>
-            Let's Build Something <span className="accent-text">Exceptional</span>
-          </h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Whether you have a full-stack project, a backend architecture query, or a job opportunity—reach out directly to Vian Pandya.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div
           style={{
@@ -101,16 +105,13 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
           }}
         >
           {/* Email Quick Access & Socials Card */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <ScrollReveal delay={200} animation="slide-right" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
             {/* Primary Email Box */}
-            <div
-              className="glass-card"
+            <SpotlightCard
               style={{
                 padding: '2rem',
-                border: '1px solid var(--accent-glow)',
-                position: 'relative',
-                overflow: 'hidden'
+                border: '1px solid var(--accent-glow)'
               }}
             >
               <div
@@ -150,7 +151,7 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justify: 'space-between',
+                  justifyContent: 'space-between',
                   background: '#05070c',
                   border: '1px solid var(--border-subtle)',
                   borderRadius: '0.75rem',
@@ -190,10 +191,10 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                 <Mail size={16} />
                 Email Vian
               </a>
-            </div>
+            </SpotlightCard>
 
             {/* Social & Network Links */}
-            <div className="glass-card" style={{ padding: '1.75rem' }}>
+            <SpotlightCard style={{ padding: '1.75rem' }}>
               <h4
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -217,44 +218,45 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
                   <LinkedinIcon size={18} /> LinkedIn Profile
                 </a>
               </div>
-            </div>
+            </SpotlightCard>
 
-          </div>
+          </ScrollReveal>
 
           {/* Contact Interactive Form */}
-          <div className="glass-card" style={{ padding: '2rem' }}>
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.35rem',
-                fontWeight: 700,
-                color: 'var(--text-main)',
-                marginBottom: '1.5rem'
-              }}
-            >
-              Send a Direct Message
-            </h3>
-
-            {submitted ? (
-              <div
+          <ScrollReveal delay={300} animation="slide-left" style={{ height: '100%', display: 'flex' }}>
+            <SpotlightCard style={{ padding: '2rem', width: '100%' }}>
+              <h3
                 style={{
-                  padding: '2rem',
-                  textAlign: 'center',
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  border: '1px solid var(--accent-teal)',
-                  borderRadius: '0.75rem',
-                  color: 'var(--text-main)'
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.35rem',
+                  fontWeight: 700,
+                  color: 'var(--text-main)',
+                  marginBottom: '1.5rem'
                 }}
               >
-                <Sparkles size={32} color="var(--accent-teal)" style={{ margin: '0 auto 1rem' }} />
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-                  Message Received!
-                </h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                  Thank you! Vian Pandya will get back to you at <strong>{formState.email || 'your email'}</strong> shortly.
-                </p>
-              </div>
-            ) : (
+                Send a Direct Message
+              </h3>
+
+              {submitted ? (
+                <div
+                  style={{
+                    padding: '2rem',
+                    textAlign: 'center',
+                    background: 'rgba(16, 185, 129, 0.1)',
+                    border: '1px solid var(--accent-teal)',
+                    borderRadius: '0.75rem',
+                    color: 'var(--text-main)'
+                  }}
+                >
+                  <Sparkles size={32} color="var(--accent-teal)" style={{ margin: '0 auto 1rem' }} />
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+                    Message Received!
+                  </h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                    Thank you! Vian Pandya will get back to you at <strong>{formState.email || 'your email'}</strong> shortly.
+                  </p>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
@@ -399,7 +401,8 @@ export default function Contact({ onCopyEmail, copiedEmail }) {
               </form>
             )}
 
-          </div>
+            </SpotlightCard>
+          </ScrollReveal>
 
         </div>
 

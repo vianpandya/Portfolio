@@ -14,6 +14,8 @@ import {
   ChevronUp,
   ArrowUpRight
 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
+import SpotlightCard from './SpotlightCard';
 
 function ImageWithPreload({ src, alt, className, style }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -146,38 +148,40 @@ export default function Projects() {
       <div className="container">
 
         {/* Section Header */}
-        <div style={{ marginBottom: '3rem' }}>
-          <div className="badge" style={{ marginBottom: '0.75rem' }}>
-            <FolderGit2 size={14} />
-            <span>Featured Portfolio Works</span>
-          </div>
-          <h2 className="section-title">
-            Featured <span className="accent-text">Projects & Applications</span>
-          </h2>
-          <p className="section-subtitle">
-            A showcase of live frontend web applications and full-stack enterprise systems built by Vian Pandya.
-          </p>
+        <ScrollReveal delay={100}>
+          <div style={{ marginBottom: '3rem' }}>
+            <div className="badge" style={{ marginBottom: '0.75rem' }}>
+              <FolderGit2 size={14} />
+              <span>Featured Portfolio Works</span>
+            </div>
+            <h2 className="section-title">
+              Featured <span className="accent-text">Projects & Applications</span>
+            </h2>
+            <p className="section-subtitle">
+              A showcase of live frontend web applications and full-stack enterprise systems built by Vian Pandya.
+            </p>
 
-          {/* Filter Tabs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.5rem' }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTabChange(tab)}
-                className={`badge ${activeTab === tab ? 'badge-active' : ''}`}
-                style={{
-                  cursor: 'pointer',
-                  padding: '0.5rem 1.25rem',
-                  fontSize: '0.9rem'
-                }}
-              >
-                {tab === 'All' && 'All Projects'}
-                {tab === 'Frontend' && 'Frontend Web Apps'}
-                {tab === 'Full-Stack' && 'Full-Stack Systems'}
-              </button>
-            ))}
+            {/* Filter Tabs */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.5rem' }}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleTabChange(tab)}
+                  className={`badge ${activeTab === tab ? 'badge-active' : ''}`}
+                  style={{
+                    cursor: 'pointer',
+                    padding: '0.5rem 1.25rem',
+                    fontSize: '0.9rem'
+                  }}
+                >
+                  {tab === 'All' && 'All Projects'}
+                  {tab === 'Frontend' && 'Frontend Web Apps'}
+                  {tab === 'Full-Stack' && 'Full-Stack Systems'}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Projects Cards Grid */}
         <div
@@ -188,160 +192,160 @@ export default function Projects() {
             alignItems: 'stretch'
           }}
         >
-          {visibleProjects.map((project) => (
-            <div
-              key={project.id}
-              className="glass-card project-card-box"
-              onClick={() => setSelectedProject(project)}
-              style={{ cursor: 'pointer' }}
-            >
-              {/* Top Website Image Preview Area */}
-              <div className="project-image-wrapper">
-                <ImageWithPreload
-                  src={project.image}
-                  alt={project.title}
-                  className="project-card-image"
-                />
-                <div className="project-image-overlay">
-                  <div className="project-hover-circle" title="View Project Details">
-                    <ArrowUpRight size={24} />
+          {visibleProjects.map((project, idx) => (
+            <ScrollReveal key={project.id} delay={idx * 80} animation="fade-in-up" style={{ display: 'flex' }}>
+              <SpotlightCard
+                className="project-card-box"
+                onClick={() => setSelectedProject(project)}
+                style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
+              >
+                {/* Top Website Image Preview Area */}
+                <div className="project-image-wrapper">
+                  <ImageWithPreload
+                    src={project.image}
+                    alt={project.title}
+                    className="project-card-image"
+                  />
+                  <div className="project-image-overlay">
+                    <div className="project-hover-circle" title="View Project Details">
+                      <ArrowUpRight size={24} />
+                    </div>
                   </div>
                 </div>
-              </div>
 
 
-              {/* Bottom Card Content Box */}
-              <div style={{ padding: '1.65rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                <div>
-                  {/* Category Accent Line & Badge */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                    <span
-                      style={{
-                        height: '2px',
-                        width: '22px',
-                        background: 'var(--accent-primary)',
-                        borderRadius: '2px'
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontSize: '0.74rem',
-                        fontFamily: 'var(--font-mono)',
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        color: 'var(--accent-primary)',
-                        fontWeight: 700
-                      }}
-                    >
-                      {project.category.toUpperCase()} PROJECT
-                    </span>
-                  </div>
-
-                  {/* Project Title */}
-                  <div style={{ marginBottom: '0.8rem' }}>
-                    <h3
-                      style={{
-                        fontFamily: 'var(--font-heading)',
-                        fontSize: '1.35rem',
-                        fontWeight: 800,
-                        textTransform: 'uppercase',
-                        color: 'var(--text-main)',
-                        margin: 0,
-                        lineHeight: 1.25
-                      }}
-                    >
-                      {project.title.split('—')[0].trim()}
-                    </h3>
-                  </div>
-
-                  {/* Project Description */}
-                  <p
-                    style={{
-                      color: 'var(--text-muted)',
-                      fontSize: '0.88rem',
-                      lineHeight: 1.6,
-                      marginBottom: '1.35rem',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Bottom Tech Capsules & Side-by-Side Action Buttons */}
-                <div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.25rem' }}>
-                    {project.tech.map((t, idx) => (
+                {/* Bottom Card Content Box */}
+                <div style={{ padding: '1.65rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div>
+                    {/* Category Accent Line & Badge */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
                       <span
-                        key={idx}
                         style={{
-                          fontSize: '0.72rem',
+                          height: '2px',
+                          width: '22px',
+                          background: 'var(--accent-primary)',
+                          borderRadius: '2px'
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontSize: '0.74rem',
                           fontFamily: 'var(--font-mono)',
+                          letterSpacing: '0.08em',
                           textTransform: 'uppercase',
-                          letterSpacing: '0.04em',
-                          background: 'rgba(255, 255, 255, 0.04)',
-                          border: '1px solid var(--border-subtle)',
-                          padding: '0.3rem 0.75rem',
-                          borderRadius: '9999px',
-                          color: 'var(--text-muted)',
-                          fontWeight: 600
+                          color: 'var(--accent-primary)',
+                          fontWeight: 700
                         }}
                       >
-                        {t}
+                        {project.category.toUpperCase()} PROJECT
                       </span>
-                    ))}
-                  </div>
+                    </div>
 
-                  <div className="project-actions-row">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(project);
-                      }}
-                      className="btn-secondary"
+                    {/* Project Title */}
+                    <div style={{ marginBottom: '0.8rem' }}>
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          fontSize: '1.35rem',
+                          fontWeight: 800,
+                          textTransform: 'uppercase',
+                          color: 'var(--text-main)',
+                          margin: 0,
+                          lineHeight: 1.25
+                        }}
+                      >
+                        {project.title.split('—')[0].trim()}
+                      </h3>
+                    </div>
+
+                    {/* Project Description */}
+                    <p
                       style={{
-                        flex: project.url ? 1 : 'none',
-                        width: project.url ? 'auto' : '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        padding: '0.65rem 1rem',
+                        color: 'var(--text-muted)',
                         fontSize: '0.88rem',
-                        borderRadius: '0.6rem'
+                        lineHeight: 1.6,
+                        marginBottom: '1.35rem',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
                       }}
                     >
-                      <span>View Details</span>
-                    </button>
+                      {project.description}
+                    </p>
+                  </div>
 
-                    {project.url && (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="live-preview-btn"
-                        onClick={(e) => e.stopPropagation()}
+                  {/* Bottom Tech Capsules & Side-by-Side Action Buttons */}
+                  <div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.25rem' }}>
+                      {project.tech.map((t, idx) => (
+                        <span
+                          key={idx}
+                          style={{
+                            fontSize: '0.72rem',
+                            fontFamily: 'var(--font-mono)',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.04em',
+                            background: 'rgba(255, 255, 255, 0.04)',
+                            border: '1px solid var(--border-subtle)',
+                            padding: '0.3rem 0.75rem',
+                            borderRadius: '9999px',
+                            color: 'var(--text-muted)',
+                            fontWeight: 600
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="project-actions-row">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(project);
+                        }}
+                        className="btn-secondary"
                         style={{
-                          flex: 1,
+                          flex: project.url ? 1 : 'none',
+                          width: project.url ? 'auto' : '100%',
+                          display: 'flex',
+                          alignItems: 'center',
                           justifyContent: 'center',
+                          textAlign: 'center',
                           padding: '0.65rem 1rem',
-                          borderRadius: '0.6rem',
-                          fontSize: '0.88rem'
+                          fontSize: '0.88rem',
+                          borderRadius: '0.6rem'
                         }}
                       >
-                        <span>Live Preview</span>
-                        <ArrowUpRight size={16} />
-                      </a>
-                    )}
+                        <span>View Details</span>
+                      </button>
+
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="live-preview-btn"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            flex: 1,
+                            justifyContent: 'center',
+                            padding: '0.65rem 1rem',
+                            borderRadius: '0.6rem',
+                            fontSize: '0.88rem'
+                          }}
+                        >
+                          <span>Live Preview</span>
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                    </div>
                   </div>
+
                 </div>
-
-              </div>
-
-            </div>
+              </SpotlightCard>
+            </ScrollReveal>
           ))}
         </div>
 

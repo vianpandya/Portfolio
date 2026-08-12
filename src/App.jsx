@@ -9,6 +9,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import { Check, Sparkles } from 'lucide-react';
+import InteractiveParticles from './components/InteractiveParticles';
+import BackgroundGlows from './components/BackgroundGlows';
 import { trackEvent } from './utils/analytics';
 
 export default function App() {
@@ -75,6 +77,8 @@ export default function App() {
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-dark)' }}>
+      <InteractiveParticles />
+      <BackgroundGlows />
       {/* Intro Loader Screen */}
       {loading && (
         <div

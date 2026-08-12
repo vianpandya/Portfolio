@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { personalInfo, codeSnippets } from '../data/portfolioData';
 import { Terminal, Copy, Check, ShieldCheck, Zap, Layers, Cpu } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
+import SpotlightCard from './SpotlightCard';
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('code');
@@ -40,18 +42,20 @@ export default function About() {
       <div className="container">
         
         {/* Section Header */}
-        <div style={{ marginBottom: '3rem' }}>
-          <div className="badge" style={{ marginBottom: '0.75rem' }}>
-            <Terminal size={14} />
-            <span>Developer Overview</span>
+        <ScrollReveal delay={100}>
+          <div style={{ marginBottom: '3rem' }}>
+            <div className="badge" style={{ marginBottom: '0.75rem' }}>
+              <Terminal size={14} />
+              <span>Developer Overview</span>
+            </div>
+            <h2 className="section-title">
+              Engineering with <span className="accent-text">Precision & Intent</span>
+            </h2>
+            <p className="section-subtitle">
+              I bridges the gap between complex backend architectures and sleek, responsive user interfaces.
+            </p>
           </div>
-          <h2 className="section-title">
-            Engineering with <span className="accent-text">Precision & Intent</span>
-          </h2>
-          <p className="section-subtitle">
-            I bridges the gap between complex backend architectures and sleek, responsive user interfaces.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Content Layout */}
         <div 
@@ -64,145 +68,149 @@ export default function About() {
         >
           {/* Principles Column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', justifyContent: 'space-between' }}>
-            <h3 
-              style={{ 
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.4rem',
-                fontWeight: 700,
-                color: 'var(--text-main)',
-                marginBottom: '0.25rem'
-              }}
-            >
-              Core Principles
-            </h3>
-
-            {principles.map((item, index) => (
-              <div 
-                key={index}
-                className="glass-card"
+            <ScrollReveal delay={200} animation="fade-in-up">
+              <h3 
                 style={{ 
-                  padding: '1.25rem 1.5rem',
-                  display: 'flex',
-                  gap: '1.25rem',
-                  alignItems: 'flex-start',
-                  flex: 1
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.4rem',
+                  fontWeight: 700,
+                  color: 'var(--text-main)',
+                  marginBottom: '0.25rem'
                 }}
               >
-                <div 
-                  style={{
-                    padding: '0.6rem',
-                    borderRadius: '0.6rem',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid var(--border-subtle)'
+                Core Principles
+              </h3>
+            </ScrollReveal>
+
+            {principles.map((item, index) => (
+              <ScrollReveal key={index} delay={250 + index * 100} animation="fade-in-up" style={{ display: 'flex', flex: 1 }}>
+                <SpotlightCard 
+                  style={{ 
+                    padding: '1.25rem 1.5rem',
+                    display: 'flex',
+                    gap: '1.25rem',
+                    alignItems: 'flex-start',
+                    width: '100%'
                   }}
                 >
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 
-                    style={{ 
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.1rem',
-                      fontWeight: 600,
-                      color: 'var(--text-main)',
-                      marginBottom: '0.25rem'
+                  <div 
+                    style={{
+                      padding: '0.6rem',
+                      borderRadius: '0.6rem',
+                      background: 'rgba(255, 255, 255, 0.04)',
+                      border: '1px solid var(--border-subtle)'
                     }}
                   >
-                    {item.title}
-                  </h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 
+                      style={{ 
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.1rem',
+                        fontWeight: 600,
+                        color: 'var(--text-main)',
+                        marginBottom: '0.25rem'
+                      }}
+                    >
+                      {item.title}
+                    </h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                      {item.desc}
+                    </p>
+                  </div>
+                </SpotlightCard>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Interactive Code Window */}
-          <div 
-            className="glass-card" 
-            style={{ 
-              padding: '0', 
-              overflow: 'hidden', 
-              display: 'flex', 
-              flexDirection: 'column', 
-              justifyContent: 'space-between' 
-            }}
-          >
-            {/* Terminal Top Bar */}
-            <div 
+          <ScrollReveal delay={300} animation="slide-left" style={{ display: 'flex', flex: 1 }}>
+            <SpotlightCard 
               style={{ 
-                padding: '0.85rem 1.25rem', 
-                background: 'rgba(0, 0, 0, 0.4)', 
-                borderBottom: '1px solid var(--border-subtle)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
+                padding: '0', 
+                overflow: 'hidden', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'space-between',
+                width: '100%'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ef4444' }}></span>
-                <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#f59e0b' }}></span>
-                <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10b981' }}></span>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginLeft: '0.75rem', fontFamily: 'var(--font-mono)' }}>
-                  vian-pandya.config.js
-                </span>
-              </div>
-
-              <button
-                onClick={copySnippet}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--text-muted)',
-                  cursor: 'pointer',
+              {/* Terminal Top Bar */}
+              <div 
+                style={{ 
+                  padding: '0.85rem 1.25rem', 
+                  background: 'rgba(0, 0, 0, 0.4)', 
+                  borderBottom: '1px solid var(--border-subtle)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ef4444' }}></span>
+                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#f59e0b' }}></span>
+                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10b981' }}></span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginLeft: '0.75rem', fontFamily: 'var(--font-mono)' }}>
+                    vian-pandya.config.js
+                  </span>
+                </div>
+
+                <button
+                  onClick={copySnippet}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    fontSize: '0.8rem',
+                    fontFamily: 'var(--font-mono)'
+                  }}
+                >
+                  {copiedCode ? <Check size={14} color="var(--accent-teal)" /> : <Copy size={14} />}
+                  <span>{copiedCode ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
+
+              {/* Code Body */}
+              <div style={{ padding: '1.5rem', background: '#05070c', flex: 1, display: 'flex', alignItems: 'center' }}>
+                <pre 
+                  style={{ 
+                    fontFamily: 'var(--font-mono)', 
+                    fontSize: '0.85rem', 
+                    color: 'var(--text-main)', 
+                    lineHeight: 1.6,
+                    whiteSpace: 'pre-wrap',
+                    wordBreak: 'break-word',
+                    margin: 0
+                  }}
+                >
+                  <code>{codeSnippets.aboutMe}</code>
+                </pre>
+              </div>
+
+              {/* Terminal Footer */}
+              <div 
+                style={{ 
+                  padding: '0.75rem 1.25rem', 
+                  background: 'rgba(255, 255, 255, 0.02)', 
+                  borderTop: '1px solid var(--border-subtle)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
                   fontSize: '0.8rem',
+                  color: 'var(--text-dim)',
                   fontFamily: 'var(--font-mono)'
                 }}
               >
-                {copiedCode ? <Check size={14} color="var(--accent-teal)" /> : <Copy size={14} />}
-                <span>{copiedCode ? 'Copied' : 'Copy'}</span>
-              </button>
-            </div>
-
-            {/* Code Body */}
-            <div style={{ padding: '1.5rem', background: '#05070c', flex: 1, display: 'flex', alignItems: 'center' }}>
-              <pre 
-                style={{ 
-                  fontFamily: 'var(--font-mono)', 
-                  fontSize: '0.85rem', 
-                  color: 'var(--text-main)', 
-                  lineHeight: 1.6,
-                  whiteSpace: 'pre-wrap',
-                  wordBreak: 'break-word',
-                  margin: 0
-                }}
-              >
-                <code>{codeSnippets.aboutMe}</code>
-              </pre>
-            </div>
-
-            {/* Terminal Footer */}
-            <div 
-              style={{ 
-                padding: '0.75rem 1.25rem', 
-                background: 'rgba(255, 255, 255, 0.02)', 
-                borderTop: '1px solid var(--border-subtle)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                fontSize: '0.8rem',
-                color: 'var(--text-dim)',
-                fontFamily: 'var(--font-mono)'
-              }}
-            >
-              <span>Status: 200 OK</span>
-              <span>UTF-8 | JavaScript</span>
-            </div>
-          </div>
+                <span>Status: 200 OK</span>
+                <span>UTF-8 | JavaScript</span>
+              </div>
+            </SpotlightCard>
+          </ScrollReveal>
 
         </div>
 
