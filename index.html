@@ -3,7 +3,13 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Multi-Resolution Favicons for Google Search & Browsers -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vian Pandya | Full-Stack Developer & Software Engineer</title>
   <meta name="description"
@@ -29,22 +35,40 @@
   <meta property="og:title" content="Vian Pandya | Full-Stack Developer & Software Engineer" />
   <meta property="og:description" content="Official portfolio of Vian Pandya — Full-Stack Developer specializing in React, Node.js, .NET, PostgreSQL, and Modern Web Applications." />
   <meta property="og:site_name" content="Vian Pandya Portfolio" />
+  <meta property="og:image" content="https://vian-pandya-portfolio.netlify.app/favicon-192x192.png" />
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vian Pandya | Full-Stack Developer" />
   <meta name="twitter:description" content="Portfolio of Vian Pandya — Full-Stack Developer specializing in React, Node.js, and Modern Web Systems." />
+  <meta name="twitter:image" content="https://vian-pandya-portfolio.netlify.app/favicon-192x192.png" />
 
-  <!-- Schema.org JSON-LD Structured Data for Google -->
+  <!-- Schema.org JSON-LD Structured Data for Google (Person & WebSite) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Vian Pandya",
-    "alternateName": "Vian Portfolio",
-    "url": "https://vian-pandya-portfolio.netlify.app/",
-    "jobTitle": "Full-Stack Developer & Software Engineer",
-    "knowsAbout": ["React", "Angular", "Node.js", ".NET", "PostgreSQL", "MongoDB", "Web Development"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vian-pandya-portfolio.netlify.app/#website",
+        "url": "https://vian-pandya-portfolio.netlify.app/",
+        "name": "Vian Pandya Portfolio",
+        "alternateName": "Vian Pandya",
+        "publisher": {
+          "@id": "https://vian-pandya-portfolio.netlify.app/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vian-pandya-portfolio.netlify.app/#person",
+        "name": "Vian Pandya",
+        "alternateName": "Vian Portfolio",
+        "url": "https://vian-pandya-portfolio.netlify.app/",
+        "image": "https://vian-pandya-portfolio.netlify.app/favicon-192x192.png",
+        "jobTitle": "Full-Stack Developer & Software Engineer",
+        "knowsAbout": ["React", "Angular", "Node.js", ".NET", "PostgreSQL", "MongoDB", "Web Development"]
+      }
+    ]
   }
   </script>
 
