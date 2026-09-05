@@ -216,7 +216,7 @@ export default function Projects() {
 
                 {/* Bottom Card Content Box */}
                 <div style={{ padding: '1.65rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                  <div>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', marginBottom: '1.25rem' }}>
                     {/* Category Accent Line & Badge */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
                       <span
@@ -242,7 +242,7 @@ export default function Projects() {
                     </div>
 
                     {/* Project Title */}
-                    <div style={{ marginBottom: '0.8rem' }}>
+                    <div style={{ marginBottom: '0.6rem', minHeight: '3.2rem', display: 'flex', alignItems: 'flex-start' }}>
                       <h3
                         style={{
                           fontFamily: 'var(--font-heading)',
@@ -264,7 +264,7 @@ export default function Projects() {
                         color: 'var(--text-muted)',
                         fontSize: '0.88rem',
                         lineHeight: 1.6,
-                        marginBottom: '1.35rem',
+                        margin: 0,
                         display: '-webkit-box',
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: 'vertical',
@@ -277,8 +277,8 @@ export default function Projects() {
 
                   {/* Bottom Tech Capsules & Side-by-Side Action Buttons */}
                   <div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.25rem' }}>
-                      {project.tech.map((t, idx) => (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.25rem', minHeight: '3.5rem', alignContent: 'flex-start' }}>
+                      {project.tech.slice(0, 6).map((t, idx) => (
                         <span
                           key={idx}
                           style={{
@@ -297,6 +297,24 @@ export default function Projects() {
                           {t}
                         </span>
                       ))}
+                      {project.tech.length > 6 && (
+                        <span
+                          style={{
+                            fontSize: '0.72rem',
+                            fontFamily: 'var(--font-mono)',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.04em',
+                            background: 'rgba(99, 102, 241, 0.1)',
+                            border: '1px solid rgba(99, 102, 241, 0.25)',
+                            padding: '0.3rem 0.75rem',
+                            borderRadius: '9999px',
+                            color: 'var(--accent-primary)',
+                            fontWeight: 700
+                          }}
+                        >
+                          +{project.tech.length - 6} more
+                        </span>
+                      )}
                     </div>
 
                     <div className="project-actions-row">
