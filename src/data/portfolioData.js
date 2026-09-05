@@ -152,104 +152,40 @@ export const skillsData = [
 ];
 
 export const projectsData = [
-  // Frontend Projects
   {
-    id: "waveform",
-    title: "WaveForm — The Audio Technology Conference",
-    category: "Frontend",
+    id: "recruitment-mgmt",
+    title: "Recruitment & Immigration Management System",
+    category: "Full-Stack",
     image:
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop",
-    url: "https://waveform-technology-conference.netlify.app/",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+    url: null,
     description:
-      "High-performance Single Page Application (SPA) built with Vanilla JavaScript and HTML5/CSS3. Features a live event countdown, procedural audio waveform visualizer engine, interactive multi-track schedule filter, speaker detail modals, and an interactive ticket calculator.",
+      "Enterprise-grade Recruitment, Immigration, and Visa Management System built with Angular 18, ASP.NET Web API (.NET 8), C#, EF Core, PostgreSQL, and Azure Cloud Infrastructure. Streamlines the end-to-end global talent acquisition lifecycle, job orders, candidate onboarding, POEA/DMW client accreditation, interview scheduling, and complex visa/immigration workflow compliance for Perdaman Global Services (PGS).",
     highlights: [
-      "Interactive Schedule & Track Filters: Multi-track agenda explorer with Day 1/2/3 tabs, category filters (Keynote, Workshop, Panel), and real-time live search across session titles and speakers.",
-      "Procedural Equalizer Visual Engine: Custom JavaScript equalizer bars (seededBars) and pure CSS keyframes generating dynamic audio bar visualizers without external raster assets.",
-      "Speaker Profiles & Ticket Calculator: 12 speaker cards with detail modals, tier pass selector (Standard, All-Access, Team), workshop add-on toggles, promo code verification (EARLYBIRD), and toast notifications.",
-      "SPA Routing & Countdown Clock: Client-side view transitions between Home, Schedule, Speakers, and Register sections with a live event countdown timer leading up to conference launch day.",
-    ],
-    tech: [
-      "Vanilla JS",
-      "HTML5",
-      "CSS3",
-      "SVG Graphics",
-      "Netlify",
-      "Responsive UX",
-    ],
-    featured: true,
-  },
-  {
-    id: "medicare-one",
-    title: "Medicare-One — Premium Healthcare Hospital",
-    category: "Frontend",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop",
-    url: "https://medicare-one.netlify.app/",
-    description:
-      "Single-page medical portal built with React, TypeScript, and Vite. Features a pulse-animated loader, real-time doctor search & filtering, a 3-step appointment booking wizard, preventive health plans, and 24/7 emergency care.",
-    highlights: [
-      "Interactive Loader & Hero Section: Full-screen pulse-animated portal loader with smooth entrance transitions, accredited doctor highlights, and instant consultation shortcuts.",
-      "Find Specialist & Doctor Search: Real-time doctor search by name or specialty, clickable department filter chips (Cardiology, Neurology, Orthopedics, etc.), rating cards, and live status indicators.",
-      "3-Step Appointment Booking Wizard: Structured reservation flow covering patient info (In-Person vs. Video), department/doctor selection with symptom notes, date/time slot picker, and reference ID confirmation.",
-      "Health Packages & Emergency Hub: Comparative preventive care plans (Essential, Premium, Total Wellness) with parameter lists alongside high-impact 24/7 trauma & ambulance emergency support info.",
-    ],
-    tech: [
-      "React",
-      "TypeScript",
-      "Vite",
-      "JavaScript",
-      "CSS Variables",
-      "Netlify",
-    ],
-    featured: true,
-  },
-  {
-    id: "aurum-estates",
-    title: "Aurum Estates — Ultra-Luxury Real Estates",
-    category: "Frontend",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-    url: "https://aurum-real-estates.netlify.app/",
-    description:
-      "Ultra-luxury real estate web application built with Angular 18, TypeScript, and Tailwind CSS v4. Features Cormorant Garamond serif aesthetics, multi-tab property filtering, interactive mortgage calculator, and property detail modals.",
-    highlights: [
-      "Exclusive Property Directory & Modals: Luxury listing cards (Villas, Penthouses, Estates) with status badges, specifications, favorite toggle, and image preview modals.",
-      "Interactive Mortgage Calculator: Real-time loan calculator with dynamic sliders for property price, down payment, loan term, and interest rate calculating monthly repayments.",
-      "Agent Directory & Scroll Animations: Professional advisor profile cards, animated client trust metrics, expandable FAQ panels, and Intersection Observer scroll reveals.",
-      "Multi-Tab Search & Filter System: Advanced property filter (Buy, Rent, Off-Market) with real-time dropdown selectors for location, property type, budget, and bedrooms.",
+      "Candidate & Profile Management Module: Manages candidate onboarding, draft profiles, resumes, background verification (education, employment, travel history), and secure document storage for passports and medical clearances.",
+      "Job Order & Compliance Module: Manages client Job Orders, vacancies, and job titles; maps mandatory skills, licenses, and certifications to specific requisitions to enforce compliance before candidate nomination.",
+      "Interview Scheduling & SignalR Updates: Manages candidate availability slots, schedules Main & Sub-Interviews with real-time workflow tracking, and leverages SignalR for live status updates and interview notifications.",
+      "Client Accreditation (DMW/POEA) & Visa Processing: Tracks DMW (Philippines) client accreditation compliance and step-by-step milestone pipelines for candidate visa applications, medical clearances, and travel itineraries.",
+      "Architecture & Azure Cloud Highlights: Architected with ASP.NET Web API (.NET 8) Clean Architecture, Yarp.ReverseProxy API Gateway, DbUp automated PostgreSQL migrations, JWT & MFA security, Azure Service Bus queues (interview & document expiry alerts), Azure Functions serverless workers, and Azure Blob Storage.",
     ],
     tech: [
       "Angular 18",
       "TypeScript",
-      "Tailwind CSS v4",
-      "Lucide Angular",
-      "Reactive Forms",
-      "Netlify",
+      "ASP.NET Web API",
+      ".NET 8",
+      "C#",
+      "EF Core",
+      "PostgreSQL",
+      "Azure Service Bus",
+      "Azure Functions",
+      "Yarp.ReverseProxy",
+      "SignalR",
+      "DbUp",
     ],
-    featured: true,
-  },
-  {
-    id: "growthwave",
-    title: "GrowthWave — Digital Marketing Agency",
-    category: "Frontend",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-    url: "https://growth-wave.netlify.app/",
-    description:
-      "Interactive digital marketing agency web app built with Angular 18, TypeScript, and Tailwind CSS. Features live interactive analytics dashboards (Chart.js), animated CountUp metrics, Swiper carousels, and multi-package pricing tiers.",
-    highlights: [
-      "Interactive Analytics Dashboard: Live Chart.js analytics preview displaying organic traffic, social engagement, revenue, and SEO performance metrics across interactive tabs.",
-      "Animated Metrics & Social Proof: CountUp.js animated agency statistics, continuous client logo marquee, and interactive service highlight cards.",
-      "Portfolio & Testimonials Carousels: Swiper Angular powered case-study slider with category filtering, customer review carousel, and expandable FAQ accordion.",
-      "Work Methodology & Pricing Plans: Step-by-step agency process pipeline, 3-tier service packages (Startup, Growth, Enterprise), and contact form with custom validation states.",
-    ],
-    tech: [
-      "Angular 18",
-      "TypeScript",
-      "Tailwind CSS",
-      "Chart.js",
-      "Swiper",
-      "Netlify",
+    businessValue: [
+      "Ensured international legal compliance through POEA/DMW accreditation checks.",
+      "Decreased time-to-hire by automatically matching candidate credentials with job requisitions.",
+      "Reduced candidate drop-out rates using live interview schedule updates via SignalR."
     ],
     featured: true,
   },
@@ -275,66 +211,6 @@ export const projectsData = [
       "Framer Motion",
       "Swiper v14",
       "Netlify",
-    ],
-    featured: true,
-  },
-  {
-    id: "aura-expeditions",
-    title: "Aura-Expeditions — Premium Travel & Tour Agency",
-    category: "Frontend",
-    image:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop",
-    url: "https://aura-expeditions.netlify.app/",
-    description:
-      "Premium travel booking & expedition platform built with React 19 and Vite 8. Features real-time destination search, a multi-step custom trip builder, climate guides, and universal consultation booking.",
-    highlights: [
-      "Smart Search & Category Filter: Real-time text search and category filtering (Tropical, Mountain, Cultural, Luxury, Adventure) for top global destination cards.",
-      "Multi-Step Custom Trip Builder: Interactive 4-step vacation budget estimator based on destination, travel style, duration, guest count, and premium VIP add-ons.",
-      "Seasonal Climate & Weather Guide: Interactive climate tool helping travelers choose the optimal month to visit based on average temperatures and weather insights.",
-      "Destination Modals & Consultation: Detailed modal popups with itineraries, seasonal highlights, client review cards, and universal trip booking popup flow.",
-    ],
-    tech: [
-      "React 19",
-      "Vite 8",
-      "JavaScript",
-      "Glassmorphism",
-      "CSS Variables",
-      "Netlify",
-    ],
-    featured: true,
-  },
-
-  // Full Stack Projects
-  {
-    id: "restaurant-mgmt",
-    title: "Restaurant Management System",
-    category: "Full-Stack",
-    image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
-    url: null,
-    description:
-      "Role-based Restaurant Management System built with ASP.NET MVC (.NET), C#, and PostgreSQL. Streamlines end-to-end restaurant operations including customer registration, table allocation with an optimized table-merging algorithm, order processing, kitchen workflows (KOT), and administrative management.",
-    highlights: [
-      "Admin Module: User, Role & Permission Management (RBAC), menu item management, table & section configuration, customer order history, inventory tracking, and dynamic tax management.",
-      "Account Manager (Receptionist) Module: Customer check-in with party size, waiting list queue management, intelligent seating allocation with an optimized table-merging algorithm to seat larger groups efficiently, real-time table & order status tracking (Ordered, Served, Cancelled, Completed), and order duration metrics.",
-      "Kitchen Order Ticket (KOT) Module: Dedicated chef dashboard, automatic real-time ticket generation upon order placement, elapsed prep time display, item-level preparation tracking (Mark as Prepared/Unprepared), and kitchen completion workflows.",
-      "Technical Highlights: ASP.NET Authentication with dynamic Role-Based Access Control (RBAC), Entity Framework & LINQ database queries, custom table-merging algorithm, RESTful APIs, dynamic tax calculation & billing engine, and modular role-tailored dashboards.",
-    ],
-    tech: [
-      "ASP.NET MVC",
-      "C#",
-      ".NET",
-      "PostgreSQL",
-      "JavaScript",
-      "Bootstrap",
-      "Entity Framework",
-      "LINQ",
-      "RBAC",
-    ],
-    businessValue: [
-      "Reduced order processing time through automated kitchen workflows.",
-      "Simplified restaurant operations with role-based dashboards.",
-      "Supported multiple staff roles with secure permission management."
     ],
     featured: true,
   },
@@ -373,6 +249,31 @@ export const projectsData = [
     featured: true,
   },
   {
+    id: "aurum-estates",
+    title: "Aurum Estates — Ultra-Luxury Real Estates",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    url: "https://aurum-real-estates.netlify.app/",
+    description:
+      "Ultra-luxury real estate web application built with Angular 18, TypeScript, and Tailwind CSS v4. Features Cormorant Garamond serif aesthetics, multi-tab property filtering, interactive mortgage calculator, and property detail modals.",
+    highlights: [
+      "Exclusive Property Directory & Modals: Luxury listing cards (Villas, Penthouses, Estates) with status badges, specifications, favorite toggle, and image preview modals.",
+      "Interactive Mortgage Calculator: Real-time loan calculator with dynamic sliders for property price, down payment, loan term, and interest rate calculating monthly repayments.",
+      "Agent Directory & Scroll Animations: Professional advisor profile cards, animated client trust metrics, expandable FAQ panels, and Intersection Observer scroll reveals.",
+      "Multi-Tab Search & Filter System: Advanced property filter (Buy, Rent, Off-Market) with real-time dropdown selectors for location, property type, budget, and bedrooms.",
+    ],
+    tech: [
+      "Angular 18",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Lucide Angular",
+      "Reactive Forms",
+      "Netlify",
+    ],
+    featured: true,
+  },
+  {
     id: "project-mgmt",
     title: "Project Management System",
     category: "Full-Stack",
@@ -403,6 +304,59 @@ export const projectsData = [
       "Boosted sprint delivery speed with interactive Scrum boards and sub-task workflows.",
       "Prevented data leaks of client specs through robust role-based access permissions.",
       "Reduced communication lag by introducing live WebSocket notification feeds."
+    ],
+    featured: true,
+  },
+  {
+    id: "waveform",
+    title: "WaveForm — The Audio Technology Conference",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop",
+    url: "https://waveform-technology-conference.netlify.app/",
+    description:
+      "High-performance Single Page Application (SPA) built with Vanilla JavaScript and HTML5/CSS3. Features a live event countdown, procedural audio waveform visualizer engine, interactive multi-track schedule filter, speaker detail modals, and an interactive ticket calculator.",
+    highlights: [
+      "Interactive Schedule & Track Filters: Multi-track agenda explorer with Day 1/2/3 tabs, category filters (Keynote, Workshop, Panel), and real-time live search across session titles and speakers.",
+      "Procedural Equalizer Visual Engine: Custom JavaScript equalizer bars (seededBars) and pure CSS keyframes generating dynamic audio bar visualizers without external raster assets.",
+      "Speaker Profiles & Ticket Calculator: 12 speaker cards with detail modals, tier pass selector (Standard, All-Access, Team), workshop add-on toggles, promo code verification (EARLYBIRD), and toast notifications.",
+      "SPA Routing & Countdown Clock: Client-side view transitions between Home, Schedule, Speakers, and Register sections with a live event countdown timer leading up to conference launch day.",
+    ],
+    tech: [
+      "Vanilla JS",
+      "HTML5",
+      "CSS3",
+      "SVG Graphics",
+      "Netlify",
+      "Responsive UX",
+    ],
+    featured: true,
+  },
+  {
+    id: "velora-vodka",
+    title: "Velora Vodka — Pure Luxury, Distilled",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=1200&auto=format&fit=crop",
+    url: "https://velora-vodka.netlify.app/",
+    description:
+      "Ultra-premium light-luxury e-commerce web application created for a bespoke spirit brand. Built with TanStack Start, React 19, TypeScript, Tailwind CSS v4, and dynamic HTML5 Canvas animations. Features interactive scroll-driven 3D parallax effects, liquid glass canvas shaders, legal age verification gate, and bottle format selector.",
+    highlights: [
+      "GPU-Optimized Liquid Canvas Shaders: Custom HTML5 2D Canvas ambient liquid glass gradient blobs with pointer physics loop, IntersectionObserver offscreen auto-pause, and reduced-motion support.",
+      "Kinetic Hero & Scroll Parallax: Physics-based scroll parallax using Motion springs, multi-axis bottle rotation, floating atmospheric droplets, and split-text typography expansion on scroll.",
+      "Age-Gate Verification Modal: Accessible legal drinking age gate with backdrop glassmorphic blur and session storage persistence.",
+      "Interactive Collection Explorer & Custom Cursor: Bottle format selector (0.05L Mini up to 6.0L Methuselah) with dynamic pricing recalculation, tasting notes radar, and smooth custom cursor tracking.",
+    ],
+    tech: [
+      "TanStack Start",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "HTML5 Canvas",
+      "Motion",
+      "GSAP",
+      "Vite 8",
+      "Netlify",
     ],
     featured: true,
   },
@@ -443,39 +397,110 @@ export const projectsData = [
     featured: true,
   },
   {
-    id: "recruitment-mgmt",
-    title: "Recruitment & Immigration Management System",
+    id: "medicare-one",
+    title: "Medicare-One — Premium Healthcare Hospital",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop",
+    url: "https://medicare-one.netlify.app/",
+    description:
+      "Single-page medical portal built with React, TypeScript, and Vite. Features a pulse-animated loader, real-time doctor search & filtering, a 3-step appointment booking wizard, preventive health plans, and 24/7 emergency care.",
+    highlights: [
+      "Interactive Loader & Hero Section: Full-screen pulse-animated portal loader with smooth entrance transitions, accredited doctor highlights, and instant consultation shortcuts.",
+      "Find Specialist & Doctor Search: Real-time doctor search by name or specialty, clickable department filter chips (Cardiology, Neurology, Orthopedics, etc.), rating cards, and live status indicators.",
+      "3-Step Appointment Booking Wizard: Structured reservation flow covering patient info (In-Person vs. Video), department/doctor selection with symptom notes, date/time slot picker, and reference ID confirmation.",
+      "Health Packages & Emergency Hub: Comparative preventive care plans (Essential, Premium, Total Wellness) with parameter lists alongside high-impact 24/7 trauma & ambulance emergency support info.",
+    ],
+    tech: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "JavaScript",
+      "CSS Variables",
+      "Netlify",
+    ],
+    featured: true,
+  },
+  {
+    id: "restaurant-mgmt",
+    title: "Restaurant Management System",
     category: "Full-Stack",
     image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
     url: null,
     description:
-      "Enterprise-grade Recruitment, Immigration, and Visa Management System built with Angular 18, ASP.NET Web API (.NET 8), C#, EF Core, PostgreSQL, and Azure Cloud Infrastructure. Streamlines the end-to-end global talent acquisition lifecycle, job orders, candidate onboarding, POEA/DMW client accreditation, interview scheduling, and complex visa/immigration workflow compliance for Perdaman Global Services (PGS).",
+      "Role-based Restaurant Management System built with ASP.NET MVC (.NET), C#, and PostgreSQL. Streamlines end-to-end restaurant operations including customer registration, table allocation with an optimized table-merging algorithm, order processing, kitchen workflows (KOT), and administrative management.",
     highlights: [
-      "Candidate & Profile Management Module: Manages candidate onboarding, draft profiles, resumes, background verification (education, employment, travel history), and secure document storage for passports and medical clearances.",
-      "Job Order & Compliance Module: Manages client Job Orders, vacancies, and job titles; maps mandatory skills, licenses, and certifications to specific requisitions to enforce compliance before candidate nomination.",
-      "Interview Scheduling & SignalR Updates: Manages candidate availability slots, schedules Main & Sub-Interviews with real-time workflow tracking, and leverages SignalR for live status updates and interview notifications.",
-      "Client Accreditation (DMW/POEA) & Visa Processing: Tracks DMW (Philippines) client accreditation compliance and step-by-step milestone pipelines for candidate visa applications, medical clearances, and travel itineraries.",
-      "Architecture & Azure Cloud Highlights: Architected with ASP.NET Web API (.NET 8) Clean Architecture, Yarp.ReverseProxy API Gateway, DbUp automated PostgreSQL migrations, JWT & MFA security, Azure Service Bus queues (interview & document expiry alerts), Azure Functions serverless workers, and Azure Blob Storage.",
+      "Admin Module: User, Role & Permission Management (RBAC), menu item management, table & section configuration, customer order history, inventory tracking, and dynamic tax management.",
+      "Account Manager (Receptionist) Module: Customer check-in with party size, waiting list queue management, intelligent seating allocation with an optimized table-merging algorithm to seat larger groups efficiently, real-time table & order status tracking (Ordered, Served, Cancelled, Completed), and order duration metrics.",
+      "Kitchen Order Ticket (KOT) Module: Dedicated chef dashboard, automatic real-time ticket generation upon order placement, elapsed prep time display, item-level preparation tracking (Mark as Prepared/Unprepared), and kitchen completion workflows.",
+      "Technical Highlights: ASP.NET Authentication with dynamic Role-Based Access Control (RBAC), Entity Framework & LINQ database queries, custom table-merging algorithm, RESTful APIs, dynamic tax calculation & billing engine, and modular role-tailored dashboards.",
+    ],
+    tech: [
+      "ASP.NET MVC",
+      "C#",
+      ".NET",
+      "PostgreSQL",
+      "JavaScript",
+      "Bootstrap",
+      "Entity Framework",
+      "LINQ",
+      "RBAC",
+    ],
+    businessValue: [
+      "Reduced order processing time through automated kitchen workflows.",
+      "Simplified restaurant operations with role-based dashboards.",
+      "Supported multiple staff roles with secure permission management."
+    ],
+    featured: true,
+  },
+  {
+    id: "growthwave",
+    title: "GrowthWave — Digital Marketing Agency",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    url: "https://growth-wave.netlify.app/",
+    description:
+      "Interactive digital marketing agency web app built with Angular 18, TypeScript, and Tailwind CSS. Features live interactive analytics dashboards (Chart.js), animated CountUp metrics, Swiper carousels, and multi-package pricing tiers.",
+    highlights: [
+      "Interactive Analytics Dashboard: Live Chart.js analytics preview displaying organic traffic, social engagement, revenue, and SEO performance metrics across interactive tabs.",
+      "Animated Metrics & Social Proof: CountUp.js animated agency statistics, continuous client logo marquee, and interactive service highlight cards.",
+      "Portfolio & Testimonials Carousels: Swiper Angular powered case-study slider with category filtering, customer review carousel, and expandable FAQ accordion.",
+      "Work Methodology & Pricing Plans: Step-by-step agency process pipeline, 3-tier service packages (Startup, Growth, Enterprise), and contact form with custom validation states.",
     ],
     tech: [
       "Angular 18",
       "TypeScript",
-      "ASP.NET Web API",
-      ".NET 8",
-      "C#",
-      "EF Core",
-      "PostgreSQL",
-      "Azure Service Bus",
-      "Azure Functions",
-      "Yarp.ReverseProxy",
-      "SignalR",
-      "DbUp",
+      "Tailwind CSS",
+      "Chart.js",
+      "Swiper",
+      "Netlify",
     ],
-    businessValue: [
-      "Ensured international legal compliance through POEA/DMW accreditation checks.",
-      "Decreased time-to-hire by automatically matching candidate credentials with job requisitions.",
-      "Reduced candidate drop-out rates using live interview schedule updates via SignalR."
+    featured: true,
+  },
+  {
+    id: "aura-expeditions",
+    title: "Aura-Expeditions — Premium Travel & Tour Agency",
+    category: "Frontend",
+    image:
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop",
+    url: "https://aura-expeditions.netlify.app/",
+    description:
+      "Premium travel booking & expedition platform built with React 19 and Vite 8. Features real-time destination search, a multi-step custom trip builder, climate guides, and universal consultation booking.",
+    highlights: [
+      "Smart Search & Category Filter: Real-time text search and category filtering (Tropical, Mountain, Cultural, Luxury, Adventure) for top global destination cards.",
+      "Multi-Step Custom Trip Builder: Interactive 4-step vacation budget estimator based on destination, travel style, duration, guest count, and premium VIP add-ons.",
+      "Seasonal Climate & Weather Guide: Interactive climate tool helping travelers choose the optimal month to visit based on average temperatures and weather insights.",
+      "Destination Modals & Consultation: Detailed modal popups with itineraries, seasonal highlights, client review cards, and universal trip booking popup flow.",
+    ],
+    tech: [
+      "React 19",
+      "Vite 8",
+      "JavaScript",
+      "Glassmorphism",
+      "CSS Variables",
+      "Netlify",
     ],
     featured: true,
   },
